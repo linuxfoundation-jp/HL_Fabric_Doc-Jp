@@ -1,0 +1,622 @@
+Blockchain and Distributed Ledger Technology	ブロックチェーンと分散台帳テクノロジー
+By the end of this chapter, you should be able to:	本章の終わりまでに、次のことができるようになります。
+Understand what centralized, distributed, and decentralized network architectures are.	中央集権型、分散型、および非中央集権型ネットワーク アーキテクチャについて理解する。
+​Discuss the problems that blockchain was designed to solve.	ブロックチェーンが解決するように設計された問題について説明する。
+Explain differences between permissioned and permissionless blockchains.	パーミッションド ブロックチェーンとパーミッションレス ブロックチェーンの違いを説明する。
+Understand why Hyperledger Fabric was developed.	Hyperledger Fabricが開発された理由を理解する。
+Throughout history, no matter how powerful computers have become, there was always the need to harness the power of multiple computational machines; this pattern grew exponentially with the advancement of the Internet.	歴史を通して、コンピューターがどんなに強力になっても、いつも複数の計算機の力を利用する必要性がありました。このパターンはインターネットの進歩とともに飛躍的に成長しました。
+In fact, in the modern interconnected world, these computational machines are also spread and distributed across large geographic areas.	事実、現代の相互につながった世界では、これらの計算機が広い地理的領域にまたがって分散されています。
+In the early days of computing, there was a model of a main, central computer where every other end-node (or client) was connected to it.	コンピューター使用の初期には、メインの中央コンピューターに他のすべてのエンドノード（またはクライアント）が接続されているモデルがありました。
+Today, the world (and the Internet) has shifted to architectures and systems that involve many loosely-coupled components.	今日、世界（およびインターネット）は、疎結合コンポーネントを多数含むアーキテクチャとシステムに移行しました。
+Such architectures vary in levels of performance (speed, throughput), reliability, and, of course, costs.	そのようなアーキテクチャは、パフォーマンス（速度、スループット）、信頼性、そしてもちろんコスト面でもさまざまなレベルがあります。
+Before we take a closer look at blockchain technologies and distributed ledger technology (DLT), let's first review the three main types of system architectures and design:	ブロックチェーン テクノロジーと分散台帳技術（DLT）の詳細を説明する前に、まず3つのおもな種類のシステム アーキテクチャと設計について説明しましょう。
+Centralized	中央集権型
+Distributed	分散型
+Decentralized.	非中央集権型
+In August 1964, a Polish-American researcher named Paul Baran published a memorandum entitled "On Distributed Communications: Introduction to Communication Networks", where he compared distributed communications networks to hierarchical or more centralized systems.	1964年8月、Paul Baranという名前のポーランド系アメリカ人研究者が「分散型通信について：通信ネットワーク入門」と題する覚書を発表し、その中で、分散型通信ネットワークと階層型システムや中央集権型システムとを比較しました。
+If we follow the same terminology, where a node represents an end-point (be it a user, device or a computer) and a network is a collection of interlinked nodes that exchange information, we can categorize networks based on their topology:	ノードとはエンドポイント（ユーザー、デバイス、コンピューターなど）を表すもので、ネットワークとは情報を交換する相互連結されたノードの集まりを表すものだと解釈すると、ネットワークは以下のように分類できます。
+Centralized networks	中央集権型ネットワーク
+Distributed networks	分散型ネットワーク
+Decentralized networks.​	非中央集権型ネットワーク
+The centralized network architecture can be described as a star or a client-server architecture, with a central server to which all nodes are connected.	中央集権型ネットワーク アーキテクチャは、すべてのノードが接続されている中央サーバーを備えた、スター型またはクライアント－サーバー型アーキテクチャとして説明できます。
+All nodes (clients) send their data to one central node, the server, which then processes and/or sends the data back or relays the data to other nodes in the network.	すべてのノード（クライアント）はそれらのデータを１つの中央ノードであるサーバーに送信し、サーバーはそれからそのデータを処理・送信するか、またはそのデータをネットワーク内の他のノードに中継します。
+The main advantage of a centralized network is that it can be easily upgraded and maintained, as only one party needs to be involved in the operation, controlling the centralized server.	中央集権型ネットワークのおもな利点は、一人で中央集権型サーバーの制御や操作ができるので、簡単にアップグレードおよび保守が可能なことです。
+However, there are many issues with a centralized architecture.	しかし、中央集権型アーキテクチャには多くの問題があります。
+It relies on a single node, which, effectively, is a point of failure.	中央集権型アーキテクチャは単一ノードに依存していますが、この点が事実上の障害と言えます。
+For example, if the server fails, the whole system fails.	たとえば、サーバーに障害が発生した場合、システム全体に障害が生じます。
+A centralized architecture also relies on a single point of trust; if that single point of trust is compromised, the entire system is compromised.	中央集権型アーキテクチャは、単一信頼点にも依存していますから、その単一信頼点が危険にさらされると、システム全体が危険にさらされます。
+In the context of connectivity, if the server is destroyed (thinking about a military setup), the nodes lose their connections to the server and cannot communicate between each other without that server.​	接続性の面では、サーバーが破壊された場合（軍事施設を想定）、ノードはサーバーへの接続を失い、そのサーバーなしでは互いに通信できません。
+Another major concern is that, in general, there is less visibility into how the server is operating, there is less built-in validation regarding the correctness, fairness, and integrity of the server and/or the service provided.​ The server is a central point of trust.	もう1つの大きな懸念は、一般に、サーバーの動作状況に対する可視性が低いこと、サーバーおよび/または提供されるサービスの正確性、公平性、および完全性に関する組み込み検証が少ないことです。サーバーは信頼の中心点になります。
+Michael Schroeder (an American computer scientist and the co-inventor of the Needham-Schroeder Protocol) described a distributed system "as several computers doing something together.	Michael Schroeder（アメリカのコンピューター科学者であり、Needham-Schroederプロトコルの共同発明者）は、次のように説明しています。「分散システムはいくつかのコンピューターが一緒に何かをしているようなものです。
+Thus, a distributed system has three primary characteristics: multiple computers, interconnections, and shared state".	したがって、分散システムには複数のコンピューター、相互接続、および共有状態 という、3つのおもな特徴があります」
+A distributed combination of some centralized systems/networks is categorized as a decentralized network.	いくつかの中央集権型システム/ネットワークの分散型組み合わせは、非中央集権型ネットワークとして分類されます。
+Such a network is not centralized, as it definitely does not rely on one single server, but is also not necessarily fully distributed, as it can have a few sub-networks that are more "centralized".	このようなネットワークは、単一のサーバーには依存しないため中央集権型ではありませんが、いくつかのサブネットワークがより中央集権型であることもあるので、必ずしも完全に分散型とはいえません。
+Overall, there is no one centralized node (server) to which all the other nodes are connected, but at the same time, it is a mix of such star networks that are interconnected.	全体として、他のすべてのノードが接続されている1つの中央集権型ノード（サーバー）はないのですが、同時に、相互接続されているスター型ネットワークが混在しています。
+The main upsides of such a network topology is that on one hand, it does not rely on one single and central node, and on the other hand, it does not require as many links between all the other nodes, such as in the distributed network depicted on the previous page.	このようなネットワークトポロジーのおもな利点は、単一の中央ノードに依存しない一方、前のページに説明された分散型ネットワークのように、他のすべてのノード間にそれほど多くのリンクを必要としないことです。
+Such decentralized networks can combine benefits of semi-centralized "zones" that may provide somewhat more control, while still eliminating some of the risks that stem from a single point of trust.	そのような非中央集権型ネットワークは、単一の信頼点から生じるリスクのいくつかを排除しながら、いくらかより制御が可能な半中央集権型「ゾーン」の利点を組み合わせることができます。
+One of the main risks in decentralized networks is the partitioning of networks into sub-networks if one or more of the semi-central hubs go down.	非中央集権型ネットワークにおけるおもなリスクの1つは、1つ以上の準中央ハブが停止した場合に、ネットワークをサブネットワークに分割してしまうことです。
+In these instances, the ordinary nodes of the network only have limited routes with other nodes that pass through the damaged or non-active semi-central hubs.	このような場合、ネットワークの通常のノードは、損傷しているか、または非アクティブ準中央ハブを通過する他のノードとの経路が制限されています。
+Centralized vs. Decentralized Solutions	中央集権型ソリューションと非中央集権型ソリューション
+Maintenance, Consistency	メンテナンス、一貫性
+Centralized systems are considered much easier to maintain.	中央集権型システムは保守がはるかに簡単だと考えられています。
+Try to think about an HTML 5 website, as an example - rolling out a new version or an update to the website can be pushed only to the centralized server.	例として、HTML 5 Webサイトについて考えてみてください。新しいバージョンの公開またはWebサイトの更新は、集中管理型サーバーにのみプッシュできます。
+The clients, using a browser, will get the updated and upgraded system the next time they refresh and log on.	クライアントは、ブラウザを使用して、次回の更新およびログオン時に更新済みおよびアップグレード済みシステムを入手します。
+The consistency and maintenance becomes an issue with decentralized and distributed systems, as multiple copies of compatible software and associated rules have to be running on different semi-central nodes or on nodes where this consistency matters.	互換性のあるソフトウェアおよび関連するルールの複数のコピーを、異なる半中央ノード、または一貫性が問題となるノードで実行しなければならないので、一貫性および保守が非中央集権型および分散型システムでは問題になります。
+Upgradability	アップグレード可能性
+When there is one centralized service, we have less issues with version-inconsistency.	中央集権型サービスが1つであるとき、バージョン不一致の問題が少なくなります。
+Same goes for upgradability (for the server side).	アップグレード可能性についても同じことが言えます（サーバー側の場合）。
+We should also mention that even in centralized systems there are issues related to the "client-side": for example, clients running different client versions (think again about the website and browsers example).	また、中央集権型システムでも「クライアント側」に関連する問題があることにも注意しなければいけません。たとえば、異なるクライアント バージョンを実行しているクライアントのような場合です（Webサイトとブラウザの例についてもう一度考えてみてください）。
+However, the single server can still require some upgrades from the client side (for example, displaying messages along the lines of "We no longer support Microsoft Internet Explorer version 6.x" or "Please upgrade your Flash version"), and the policy is configured and set on the single, centralized node.	ただし、単一サーバーでもクライアント側からのアップグレードが必要になる場合があり（たとえば、「Microsoft Internet Explorerバージョン6.xはサポートされなくなりました」または「Flashバージョンをアップグレードしてください」というメッセージが表示される場合）、ポリシーは単一の中央集権型ノードで構成および設定されます。
+In decentralized and distributed systems, it is a lot harder to push an upgrade to all the nodes.	非中央集権システムや分散システムでは、アップグレードをすべてのノードにプッシュするのははるかに困難です。
+It is not just the fact that there are many more nodes that require an upgrade (it is much more than one centralized server); the issue here is also with convincing the node owners or operators to upgrade.	アップグレードを必要とするノードが他にもたくさんあるということだけではありません（1つの中央集権型サーバー以上のものである）。この問題により、ノード所有者またはオペレータがアップグレードいなければいけないと考えるのです。
+Especially when we are talking about significant upgrades to the decentralized or distributed network, getting a wide "consensus" around such an upgrade (that may even affect the protocol used, going forward) is a much harder task.	特に、非中央集権型または分散型ネットワークへの大幅なアップグレードを検討するときは、そのようなアップグレードについて幅広い「合意」を得ることのほうが（アップグレードは使用されるプロトコルに影響を与える可能性あるので）難しくなります。
+Scalability and Performance	スケーラビリティとパフォーマンス
+Scalability can mean different things in this context.	ここでは、スケーラビリティは異なるものを指す可能性があります。
+As such, let's talk about two aspects of scalability.	そのため、スケーラビリティの2つの側面について説明しましょう。
+One is related to the number of hops required for two nodes to communicate; the other is related to the workload imposed on a server.	1つは、2つのノードが通信するのに必要なホップ数に関係しています。もう1つは、サーバーにかかるワークロードに関連しています。
+It is important to note that sometimes redundancy affects performance negatively.	冗長性がパフォーマンスに悪影響を及ぼす場合があることに注意することが重要です。
+We may have too many nodes that are involved in sending a message from A to B, whereas when we have the direct connectivity from each node to a centralized server, the communication is more "direct".	AからBへのメッセージ送信に関係するノードが多すぎる可能性がありますが、各ノードから中央集権型サーバーへの直接接続がある場合、通信はより「直接的」になります。
+However, when we need to worry about workloads, having more than one single server can scale better, as we can introduce more machines/servers that can improve the throughput of the system (especially when a task can be parallelized).	ただし、ワークロードを心配しなければならない場合は、システムのスループットを向上させることができるマシン/サーバーを増やすことができるため（特にタスクを並列化できる場合）、複数のサーバーを配置することで拡張性が向上します。
+So, in a distributed and decentralized network, while more machines/nodes are involved, in many cases these are much more scalable systems, can support more nodes and there is less risk of "bringing the whole network down" by flooding one single server with tasks until it is brought down to a halt.	したがって、分散型および非中央集権型ネットワークでは、より多くのマシン/ノードが関与しますが、多くの場合、これらはより拡張性のあるシステムで、より多くのノードをサポートでき、単一サーバーが停止になるまで大量のタスクを流して「ネットワーク全体をダウン」させるリスクが少なくなります。
+Fault Tolerance/Points of Failure	耐障害性/障害点
+Centralized systems pose a much higher risk when anything goes wrong on the sever-side - as it may bring the whole network/service down, when all is centered around it.	中央集権型システムでは、サーバー側で何か問題が発生すると、ネットワークやサービス全体がダウンする可能性があるためはるかに高いリスクが発生します。
+So, while having one server makes it a lot easier to maintain and remain consistent (on the server-side), there is no redundancy.	そのため、1つのサーバーを持つことで（サーバー側で）保守と一貫性を維持することがはるかに容易になりますが、冗長性はありません。
+Decentralized and distributed systems are much more preferable when redundancy is needed, which is also how the internet was designed.	冗長性が必要な場合は非中央集権型システムや分散型システムの方がはるかに適しています。インターネットもこのように設計されています。
+When somebody is sending an email, the email traverses through peer nodes that are spread across the globe.	誰かがEメールを送信しているとき、Eメールは世界中に広がっているpeerノードを通過します。
+So, if a few computers are "shut down", there is enough redundancy and other nodes will relay the email message forward.	そのため、数台のコンピューターが「シャットダウン」されても、十分な冗長性があり、他のノードが電子メールメッセージを中継して送ることになります。
+Determinism and Predictability	決定論と予測可能性
+While this item is highly related to the versioning and consistency aspects that we just covered, this is such an important aspect that it merits its own section.	この項目は、今説明したバージョン管理と一貫性の面と高い関連性がありますが、これは非常に重要な観点なので独立したセクションを設けます。
+Other than software upgrades and version updates, distributed and decentralized systems are unusually vulnerable to non-determinism.	ソフトウェアのアップグレードとバージョンの更新を除けば、分散型システムと非中央集権型システムは非決定論に対して異常に脆弱です。
+On the physical side, different nodes/machines in the system have different hardware, performance and locks.	物理的には、システム内のノードやマシンによってハードウェア、パフォーマンス、およびロックが異なります。
+In addition, such nodes and their owners/operators may also have different incentives.	さらに、そのようなノードおよびそれらの所有者/運営者もまた異なるインセンティブを有する可能性があります。
+Unlike with centralized system, when one can own the machine, make sure it operates well, is performant and well-maintained, one does not usually have the same level of control over all the nodes in a distributed and decentralized system.	中央集権型システムとは異なり、マシンを所有することができる場合、そのマシンが正常に動作し、高性能でよく維持されていることを確認してください。通常、分散型および非中央集権型システムのすべてのノードは制御できません。
+Therefore, one cannot "blindly" rely on nodes relaying data on time, that transmissions are not being blocked or that data is not tampered with.	したがって、ノードがデータを時間通りに中継すること、送信がブロックされていないこと、またはデータが改ざんされていないことを信用することはできません。
+Enter Blockchain and Distributed Ledgers	ブロックチェーンと分散台帳の入力
+A blockchain is a continuously growing list of records, which are ordered and combined/grouped into blocks.	ブロックチェーンは、継続的に増え続けるレコードリストで、順番に並べられ、ブロックにまとめられ/グループ化されます。
+Such blocks are linked (or "chained") using cryptography.	このようなブロックは、暗号技術を使用してリンク（または「連鎖」）しています。
+The first block in a blockchain is called the genesis block, and each following block is appended after the last block in the chain.	ブロックチェーンの最初のブロックはgenesis block（ジェネシスブロック）と呼ばれ、後続の各ブロックはチェーンの最後のブロックの後に追加されます。
+Each block typically contains a cryptographic hash of the previous block.	各ブロックは通常、前のブロックの暗号学的ハッシュを含みます。
+Since each new block contains a hash of the previous block, a blockchain is inherently resistant to modification of historical data.	それぞれの新しいブロックは前のブロックのハッシュを含んでいるため、ブロックチェーンは履歴データの修正に対して本質的に耐性があります。
+In typical blockchain implementations, the records that are grouped into a block are referred to as transactions that take place between parties and are added to the about-to-be-written block after they have been verified.	一般的なブロックチェーンの実装では、ブロックにグループ化されたレコードは、当事者間で行われるトランザクションと呼ばれ、検証後に書き込まれるブロックに追加されます。
+For use as a distributed ledger, a blockchain is typically managed by a peer-to-peer network collectively adhering to a protocol for validating new blocks.	分散台帳として使用するために、ブロックチェーンは通常、新しいブロックの検証用プロトコルに準拠するP2Pネットワークによって管理されます。
+Once recorded, the data in any given block cannot be altered retroactively without the alteration of all subsequent blocks, which requires collusion of the network majority.	いったん記録されると、任意のブロック内のデータは、その後のすべてのブロックを変更することなしに遡及的に変更することはできず、これはネットワーク大多数で一緒に行わなければなりません。
+Permissioned vs Permissionless Blockchains	パーミッションド ブロックチェーンとパーミッションレス ブロックチェーン
+Why Enterprises Are Choosing Permissioned Blockchains?	企業がパーミッションド ブロックチェーンを選択する理由
+Summary	まとめ
+In this chapter, you have been introduced to the fundamentals of distributed systems and distributed ledger technologies.	この章では、分散型システムと分散台帳技術の基礎について説明してきました。
+We also provided a quick overview of key blockchain features that are needed in order to build reliable decentralized systems.	また、信頼性の高い非中央集権型システムを構築するために必要となるおもなブロックチェーン機能の概要についても説明しました。
+You should now have an understanding of the differences between centralized networks and distributed networks.	これで中央集権型ネットワークと分散型ネットワークの違いを理解できたはずです。
+You should also understand why enterprises want to move towards distributed ledgers. We hope that, in addition to having the motivation for utilizing such a transformative technology, you also understand that such decentralized systems tend to be a bit more complicated and delicate, and must be carefully designed, developed and thoroughly tested.	これで中央集権型ネットワークと分散型ネットワークの違いを理解できたはずです。 このような変革的な技術を利用する意欲をもつことに加え、このような分散型システムが多少複雑で繊細であり、設計、開発を慎重に行い、徹底的にテストされなければならないことを理解してもらいたいと考えています。
+On the bright side, Hyperledger Fabric was designed and built to address many of the challenges listed in this chapter.	その点、Hyperledger Fabricが、この章に記載されている多くの課題に対処するように設計、構築されていることは良いことでしょう。
+Next, we will dive into Hyperledger Fabric and the tools it provides you, as a developer or as a systems designer, for addressing the challenges and enterprise requirements.	次に、Hyperledger Fabricと、開発者またはシステム設計者として問題や企業が求める要件に対処するためのHyperledger Fabricが提供するツールについて詳しく見ていきましょう。
+Discuss about Hyperledger and its various frameworks and modules.	Hyperledgerとそのさまざまなフレームワークやモジュールについて論じる。
+Understand Hyperledger's Fabric modular architecture, its various components and roles.	Hyperledger Fabricのモジュラー アーキテクチャ、そのさまざまなコンポーネントや役割について理解する。
+Understand the key components of a Hyperledger Fabric network.	Hyperledger Fabricネットワークの重要なコンポーネントについて理解する。
+Hyperledger Burrow	Hyperledger Burrow
+It is a permissionable smart contract machine.	許可可能な (permissionable) スマートコントラクト マシンです。
+The first of its kind when released in December of 2014, Hyperledger Burrow provides a modular blockchain client with a permissioned smart contract interpreter built in part to the specification of the Ethereum Virtual Machine (EVM).	2014年12月にリリースされた最初の製品であるHyperledger Burrowは、Ethereum Virtual Machine（EVM）の仕様の一部としてパーミッションド スマートコントラクト インタープリタを内蔵したモジュラー ブロックチェーン クライアントを提供しています。
+Hyperledger Fabric	Hyperledger Fabric
+It is intended to serve as a foundation for developing applications or solutions with a modular architecture, whereas several key components of Hyperledger Fabric are plug-and-play.	モジュラー アーキテクチャを使用してアプリケーションまたはソリューションを開発するための基盤として機能することを目的としています。一方、Hyperledger Fabricのいくつかの重要なコンポーネントはプラグアンドプレイになっています。
+Hyperledger Fabric reached the 1.0 milestone on July 11, 2017.	Hyperledger Fabricは、2017年7月11日に1.0をリリースしました。
+Hyperledger Indy	Hyperledger Indy
+It contains tools, libraries, and reusable components for providing digital identities rooted on blockchains or other distributed ledgers so that they are interoperable across administrative domains, applications, and any other silos.	ブロックチェーンやその他の分散台帳に基づくデジタルIDを提供するツール、ライブラリ、および再利用可能なコンポーネントを含んでいます。これによって、管理ドメイン、アプリケーション、その他のサイロ間で相互運用が可能になります。
+Hyperledger Iroha	Hyperledger Iroha
+It is a business blockchain framework designed to be simple and easy to incorporate into infrastructural projects requiring distributed ledger technology.	分散台帳技術を必要とするインフラストラクチャ プロジェクトに簡単に組み込めるように設計されたビジネスブロックチェーン フレームワークです。
+Hyperledger Sawtooth	Hyperledger Sawtooth
+It is a modular platform for building, deploying, and running distributed ledgers.	分散台帳を構築、デプロイ、および実行するためのモジュラー プラットフォームです。
+Hyperledger Sawtooth includes a novel consensus algorithm, Proof of Elapsed Time (PoET), which targets large distributed validator populations with minimal resource consumption.	Hyperledger Sawtoothには、新しいコンセンサス アルゴリズムであるProof of Elapsed Time（PoET）が含まれており、最小のリソースを消費する大規模な分散Validator母集団を対象とします。
+Hyperledger Sawtooth reached the 1.0 milestone on January 30, 2018.	Hyperledger Sawtoothは、2018年1月30日に1.0をリリースしました。
+Hyperledger offers also the following five tools:	Hyperledgerには、次の5つのツールもあります。
+Hyperledger Caliper	Hyperledger Caliper
+It is a blockchain benchmark tool, which allows users to measure the performance of a specific blockchain implementation with a set of predefined use cases.	ブロックチェーン ベンチマーク ツールであり、ユーザーは一連の定義済みのユースケースを使用して特定のブロックチェーン実装のパフォーマンスを測定できます。
+Hyperledger Cello	Hyperledger Cello
+It aims to bring the on-demand “as-a-service” deployment model to the blockchain ecosystem to reduce the effort required for creating, managing and terminating blockchains.	オンデマンドの“as-a-services” デプロイ モデルをブロックチェーン エコシステムに取り入れて、ブロックチェーンの作成、管理、および終了に必要な作業を削減することを目的としています。
+Hyperledger Composer	Hyperledger Composer
+It is a collaboration tool for building blockchain business networks, accelerating the development of smart contracts and their deployment across a distributed ledger.	ブロックチェーンのビジネス ネットワークを構築し、スマートコントラクトの開発と分散台帳へのデプロイを促進するためのコラボレーション ツールです。
+Hyperledger Explorer	Hyperledger Explorer
+It can view, invoke, deploy or query blocks, transactions and associated data, network information, chain codes and transaction families, as well as any other relevant information stored in the ledger.	ブロック、トランザクションおよび関連データ、ネットワーク情報、チェーンコード、トランザクション ファミリー、および台帳に格納されているその他の関連情報を表示、起動、デプロイ、またはクエリできます。
+Hyperledger Quilt	Hyperledger Quilt
+It offers interoperability between ledger systems by implementing ILP, which is primarily a payments protocol and is designed to transfer value across distributed ledgers and non-distributed ledgers.	ILPを実装することで台帳システム間の相互運用性を実現します。ILPはおもに決済プロトコルであり、分散台帳と非分散台帳の間で値を転送するように設計されています。
+Most distributed ledger technologies (DLTs) work with a peer-to-peer network of nodes, where a ledger is distributed such that each node has an identical copy of the ledger.	ほとんどの分散台帳技術（DLT）はノードのpeer-to-peer（P2P）ネットワークを使用し、各ノードに台帳の複製を置き、台帳を分散させます。
+Architecture	アーキテクチャ
+Most distributed ledger technologies (DLTs) work with a peer-to-peer network of nodes, where a ledger is distributed such that each node has an identical copy of the ledger.	ほとんどの分散台帳技術（DLT）はノードのpeer-to-peer（P2P）ネットワークを使用し、各ノードに台帳の複製を置き、台帳を分散させます。
+We can think of the ledger as an append-only system of records or log of transactions.	台帳は、トランザクションのログを記録する、アペンド（追加）に特化したシステムのようなものです。
+A distributed ledger is a multi-party database with no central trusted authority.	分散台帳は、集中管理者が存在しない、みんなで共有するデータベースです。
+The differentiating nuance is that when transactions are processed in blocks according to the ordering of a blockchain, the result is a distributed ledger.	言い換えると、ブロックチェーンの順序に沿ってトランザクションをブロックで処理した結果、分散台帳が作成されます。
+Such transactions are ordered and grouped into blocks (hence the term blockchain ).	トランザクションは順序付けされ、ブロックにグループ化されます（それが「ブロックチェーン」と呼ばれる所以です）。
+Now, with that very high-level description in mind, let's go over the key components in the Hyperledger Fabric Service Layers diagram on the previous page.	では、ハイレベルの解説を頭に入れた上で、いったん前のページに戻り、Hyperledger Fabric Service Layerの図を使って重要なコンポーネントを見ていきましょう。
+Since we have multiple components, it was clear from the very early stages of the project that APIs (Application Programming Interfaces) and components are integrated, assembled and are interacted with through these APIs and SDKs (Software Development Kits).	コンポーネントが複数あるため、API (Application Programming Interfaces) とコンポーネントは、APIやSoftware Development Kit (SDK) を通して統合され、組み立てられ、相互作用することは、プロジェクトのかなり初期段階から明確でした。
+We will learn more when we get to the Hyperledger Fabric SDK and the various APIs in use.	詳しくは、Hyperledger Fabric SDKやさまざまなAPIを使用しながら学習していきます。
+Identity plays a big role in the establishment of a root of trust during the setup of a blockchain instance, the enrollment and registration of identities or system entities during network operation, and the management of changes like drops, adds, and revocations.	ID管理（Identity）は、ブロックチェーンのインスタンスを作成する時の信頼の起点 (Root of Trust) の作成、ネットワークオペレーションにおけるIDやシステム エンティティのEnrollmentとRegistration（記載や登録）、ドロップ/追加/取り消しなどの変更管理において、重要な役割を果たします。
+Membership Services, under Identity, also include authentication and authorization (think about a member of a group, or a role).	ID管理配下のメンバーシップ サービスには、認証 (Authentication) および認可 (Authorization) が含まれます（グループのメンバーやロールの管理）。
+The Ledger is the sequenced record of all state transitions in a network.	台帳（Ledger）は、ネットワーク上で行われるすべてのステート遷移について一連の記録をとったものです。
+It is easy to think about it as the bookkeeper's table, having keys or attributes (such as account1balance ) and their respective values (keeps a record that account1balance is currently 17).	台帳は、簿記係の台帳のように、(”account1balance”のような) キーあるいは属性および (”account1balance”が現在17であるという記録を持っているといったように) 個々の値 を持っていると考えるとわかりやすいです。
+Transactions are state transitions that are stored in the ledger; they are a result of smart contract invocations ( transactions ) submitted by participating parties.	トランザクション（Transactions）は、台帳に保存された、ステート遷移を指します。 つまり、参加パーティーによりサブミットされた、実施済みのスマートコントラクト（“トランザクション “）の結果です。
+Consensus is the mechanism for reaching or generating an agreement from network participants (e.g. regarding the validity of a claim or proposed transaction).	コンセンサス（Consensus）は、リクエストまたは提案されたトランザクションの有効性などについて、ネットワーク参加者の合意を得るためのメカニズムです。
+This layer is using the peer-to-peer network as the underlying communication layer, the distributed ledger that is shared between the peers, as well as an ordering service which orders the transactions and groups them into blocks.	このレイヤーでは、基盤のコミュニケーション レイヤーであるP2Pネットワーク、peer間で共有されている分散台帳、およびトランザクションを順序どおりに並べてブロックにグループ化するordering serviceを使用しています。
+Smart Contract Layer - other than the distributed ledger technologies (DLTs), most blockchains also have an additional layer on top, which has the ability to run and execute some agreed-upon business logic.	スマートコントラクト レイヤー（Smart Contract Layer）：分散台帳技術（DLT）以外に、多くのブロックチェーンは、一番上に追加のレイヤーが存在しています。 これは、同意済みのビジネス ロジックを実装し、実行することができます。
+Such logic is built into units of code that are denoted as Smart Contracts .	これらの「ロジック」は、コードという単位にまとめられ、「スマートコントラクト」として表示されます。
+Smart Contracts are a way to submit/propose scripts and programs that encapsulate some logic and have them live on the shared peer-to-peer network, in a way that peers can execute that exact same piece of logic.	スマートコントラクトは、ロジックをカプセル化するスクリプトやプログラムをサブミット/提案し、共有のP2Pネットワーク上で使えるようにする方法で、peerがまったく同じロジックを実行できるようにします。
+Security and Crypto Services allow different crypto algorithms or modules to be swapped out without affecting other modules.	セキュリティ&暗号化サービス（Security and Crypto Services）は、他のモジュールに影響を与えることなく、異なる暗号化アルゴリズムやモジュールをスワップアウトできるようにします。
+Hyperledger Fabric Components	Hyperledger Fabricのコンポーネント
+Now that we have reviewed the architecture diagram, we will go over Hyperledger Fabric components and learn how Hyperledger Fabric follows the architecture diagram while providing a highly modular architecture where many components can be added, extended or completely replaced.	前ページでアーキテクチャ図を見直しました。 続いて、Hyperledger Fabricコンポーネントについて解説し、Hyperledger Fabricがアーキテクチャ図に従う方法を学習するとともに、多くのコンポーネントの追加、拡張、または完全に交換可能な高度なモジュラー アーキテクチャを提供します。
+The most simplified view of a typical Hyperledger Fabric deployment is comprised of nodes that are connected as a peer-to-peer network, with a distributed ledger which is shared amongst the nodes.	一般的なHyperledger Fabricデプロイの最も単純化されたビューは、P2Pネットワークとして接続されているノードで構成され、ノード間で共有されている分散台帳があります。
+However, the nodes in Hyperledger Fabric have different roles.	ただし、Hyperledger Fabricのノードには異なる役割があります。
+First, such connected nodes in Hyperledger Fabric can be of two categories: peers and orderers:	まず、Hyperledger Fabricのネットワークに参加しているノードには、PeersとOrderersの2つのカテゴリがあります。
+● Peers are nodes that maintain a local copy of the ledger.	• Peersは、台帳のローカル コピーを維持するノードです。
+They can also propose a new transaction that will be shared around, and potentially be saved/applied/committed to the ledger.	周りで共有され、台帳に保存/適用/コミットされる可能性のある新しいトランザクションのproposalも可能です。
+● Orderers are nodes running an ordering service .	• Orderersは、”ordering service”を実行しているノードです。
+In every Hyperledger Fabric network there needs to be at least one node which is running the ordering service , but it does not have to be the only one.	すべてのHyperledger Fabricネットワークには、”ordering service”を実行しているノードが少なくとも1つ必要ですが、1つだけである必要はありません。
+There may be several nodes running the ordering service, and these are denoted as the orderers .	ordering serviceを実行している複数のノードがある可能性があり、これらは”orderers”として示されます。
+When a peer proposes a transaction and the transaction is committed, the orderer helps ensure that transactions are, as the name implies, ordered correctly, and such ordered transactions are being shared with the rest of the peers.	あるpeerがトランザクションを提案し、トランザクションが確定されると、ordererは（その名前が示すように）、トランザクションを確実に正しく順序付けして他のpeersと共有できるようにします。
+While the roles of nodes are split between nodes that are running an ordering service versus nodes that are peers, there are two types of peers in Hyperledger Fabric:	ノードの役割は、ordering serviceを実行しているノードとpeerノードの間で分割されますが、Hyperledger Fabricには2種類のpeerがあります。
+● Endorsing Peer/Endorser votes for, or endorses transactions that are proposed by the client or application layer.	• Endorsing peer/Endorserは、クライアント層またはアプリケーション層によって提案されたトランザクションに”vote (投票)”または”endorse (エンドース・承認)”します。
+Hence, the name endorser .	そのため、 “endorser (エンドーサー・署名者)”と呼ばれます。
+In the role of endorser, the peer does not add the transaction onto the ledger.	endorserの役割では、peerはトランザクションを台帳に追加しません。
+Instead, after checking the client signature, it runs chaincode to get the read and write sets of the World State (term World State is explained later in the chapter) affected by the transaction.	代わりに、クライアントの署名をチェックした後、チェーンコードを実行して、トランザクションによって影響を受けるワールドステートのRWセットを取得します（「ワールドステート」という用語についてはこの章の後半で説明します）。
+These are then sent to the orderer by the clients who collect the endorsements.	これらはその後、endorsement（エンドースメント・署名）承認を収集するクライアントによってordererに送られます。
+Read and write sets are the inputs and outputs to the chaincode running on the endorser.	RWセットは、endorserで実行しているチェーンコードへの入力と出力です。
+This is called simulating the transaction, as the results are not written back into the ledger.	結果が台帳には書き戻されないため、これはトランザクションのシミュレーションと呼ばれます。
+Note: In Hyperledger Fabric, every endorser (or endorsing node) is also a committer (committing node).	注記：Hyperledger Fabricでは、 各endorser（またはendorsing node）は、committerでもあります。
+So, while the endorsers are the ones whose endorsement for the transaction the client seeks, later on, both endorsers and committers ultimately commit the transaction to the ledger.	endorserはクライアントが要求するトランザクションをendorseします。 一方、endorserとcommitterの両方が、台帳にトランザクションを最終的にコミットします。
+● Committing Peer/Committer is a peer which validates transactions after endorsement and ordering to apply the results of the transaction onto the local ledger.	• Committing peer / Committerは、endorsementとorderingの後にトランザクションを検証し、トランザクションの結果をローカルの台帳に適用するためのpeerです。
+At this point, the valid transactions are immutably written to the ledger.	この時点で、有効なトランザクションは台帳に永久に書き込まれます。
+Note: Every endorsing peer is also a committer, but not the other way around.	注記：すべてのendorserはcommitterでもありますが、その逆は真ではありません。
+There are committers that are not endorsers.	endorserではないcommitterもあります。
+Identity and Membership Services	ID管理とメンバーシップ サービス
+Hyperledger Fabric is a permissioned blockchain, in the sense that all participants have known identities.	Hyperledger Fabricは、すべての参加者に既知のIDがあるという意味でパーミッションド ブロックチェーンです。
+Especially in regulated markets, many use cases require complying with some strict KYC (Know Your Customer) requirements.	特に規制された市場では、多くのユースケースでいくつかの厳しいKYC (Know Your Customer、顧客確認）要件を順守する必要があります。
+These KYC requirements mandate a set of minimum checks that an organization has to conduct against a customer, before that customer is onboarded onto the system .	これらのKYC要件は、顧客が「システムにオンボードする」前に、その顧客に対して組織が実施しなければならない一連の最低限のチェックを義務付けています（たとえば、銀行で口座開設をする際の本人確認手続きのようなものです）。
+To enable permissioned networks, Hyperledger Fabric provides an identity and membership service that manages user IDs and authenticates all participants on the network.	パーミッションド ネットワークを有効にするために、Hyperledger Fabricは、ユーザーIDを管理し、ネットワーク上のすべての参加者を認証 (authentication) するIDおよびメンバーシップサービスを提供しています。
+Access control lists can be used to provide additional layers of permission through authorization of specific network operations.	アクセス制御リストを使用し、特定のネットワーク操作を認可 (authorization) することで、追加のパーミッション層を提供できます。
+For example, a specific user ID could be permitted to invoke a chaincode function, but blocked from deploying new chaincode.	例えば、特定のユーザーIDがチェーンコード機能を呼び出すことを許可されていても、新しいチェーンコードのデプロイがブロックされている可能性があります。
+Because different industries and different organizations have different requirements, Hyperledger Fabric's modularity comes into play here with a pretty flexible membership service mechanism, which we will describe next.	業種や組織が異なれば要件も異なるため、Hyperledger Fabricのモジュール性は、次に説明する非常に柔軟なメンバーシップ サービス メカニズムによって実現されています。
+The Hyperledger Fabric module that is in charge of participant registration, enrollment and its authentication is the Membership Services component.	参加者の記載、登録、およびその認証を担当するHyperledger Fabricモジュールが、メンバーシップ サービス（Membership Services）コンポーネントです。
+Fabric Certificate Authority	Fabric Certificate Authority（認証局）
+Hyperledger Fabric comes with a default Certificate Authority (CA) that is provided both in code or via a pre-built Docker image with every Hyperledger Fabric release.	Hyperledger FabricにはデフォルトのCertificate Authority（CA：認証局）が付属しています。 これは、コードで提供されるか、またはすべてのHyperledger Fabricリリースで事前にビルドされたDockerイメージを介して提供されます。
+It is released under the Hyperledger Fabric CA component.	CAは、Hyperledger Fabric CAコンポーネントの下でリリースされています。
+This component is used for registering and enrolling nodes that are part of the blockchain.	このコンポーネントは、ブロックチェーンの一部であるノードのRegistrationとEnrollmentに使用されます。
+Effectively, it is responsible for creating Enrollment Certificates (ECerts) in the form of standard X.509 v3 to participants that are granted the permission to join and participate in the (permissioned) blockchain network.	事実上、（パーミッションド）ブロックチェーン ネットワークに参加する許可を得た参加者に対して、標準X.509 v3の形式でEnrollment Certificates（登録証明書：ECerts）を作成する責任があります。
+Fabric CA, the Certificate Authority, is a service needed for issuing the (Enrollment) certificates to authenticated participants.	認証局であるFabric CAは、認証された参加者にその（Enrollment）証明書を発行するために必要なサービスです。
+It is important to know that, as part of Hyperledger Fabric's modular design, Fabric CA is just a reference implementation for a CA, and anyone can extend, develop his/her own, and replace it if needed.	重要な点は、Hyperledger Fabricのモジュール設計の一環として、Fabric CAがCAの単なる参照実装であり、必要に応じて誰でも拡張や独自開発、および置き換えが可能であることを知っておくことです。
+Next, we will introduce the Membership Services and the Membership Service Provider.	次に、メンバーシップ サービスとメンバーシップ サービス プロバイダー (Membership Service Provider) を紹介します。
+Membership Services and the Membership Service Provider	メンバーシップ サービスとメンバーシップ サービス プロバイダー
+Hyperledger Fabric supports a pluggable interface which is called the Membership Service Provider (MSP).	Hyperledger Fabricは、メンバーシップ サービス プロバイダー（Membership Service Provider: MSP）と呼ばれるプラガブルインターフェイスに対応しています。
+The Membership Service Provider manages the authentication of identity and permission management, which are key for knowing when or whether the CA should actually issue a certificate.	メンバーシップ サービス プロバイダーは、IDの認証とパーミッション管理を管理します。 これは、CAがいつ証明書を実際に発行するのか、あるいは発行するのかどうかを判断するための重要なポイントです。
+There are various Membership Services implementations.	メンバーシップ サービスには、さまざまな実装があります。
+Hyperledger Fabric comes with a default one, but others can write their own or integrate with other implementations that adhere to the Membership Services Provider interface.	Hyperledger Fabricにはデフォルトのものが付属していますが、他の人が独自に作成したり、メンバーシップ サービス プロバイダー インターフェイスに準拠した他の実装とも統合できます。
+Membership Service Provider (MSP) is a component that aims to offer an abstraction of a membership operation architecture.	メンバーシップ サービス プロバイダー（MSP）は、メンバーシップ操作アーキテクチャの抽象化を提供することを目的としたコンポーネントです。
+A Hyperledger Fabric blockchain network can be governed by one or more MSPs.	Hyperledger Fabricブロックチェーンネットワークは、1つ以上のMSPによって管理できます。
+This provides modularity of membership operations, and interoperability across different membership standards and architectures.	これにより、メンバーシップ操作のモジュール化し、さまざまなメンバーシップ標準やアーキテクチャ間の相互運用性を提供します。
+The Distributed Ledger in Hyperledger Fabric	Hyperledger Fabricの分散台帳 I
+The distributed ledger in Hyperledger Fabric is comprised of two parts.	Hyperledger Fabricの分散台帳は2つの部分から構成されています。
+We have the World State and the Transaction Log.	1つはワールドステート (World State)、もう1つはトランザクション ログ (Transaction Log) です。
+● World State	• ワールドステート
+Effectively, when we look at the World State , or put differently, the current state of the world , we are looking at a versioned list of key/value pairs.	効果的に、“ワールドステート”、別の言い方をすれば、現在の「世界の状態」を見るということは、バージョン管理されたキー/値のペアリストを見ていることになります。
+The value can be almost anything (it is actually a Binary Large OBject - BLOB or JSON), while the key is a unique identifier.	値はほとんど何でもかまいません (実際にはBinary Large Object - BLOBまたはJSON) が、キーはユニークな識別子です。
+It is typical to represent an asset or a parameter using the key , and then to assign it an initial value, update it when needed, and even discard it in cases where it is not needed anymore.	アセットあるいはパラメーターを “キー”で表してから、初期値を割り当て、必要に応じて更新し、不要になった場合は破棄するのが一般的です。
+● Transaction Log	• トランザクション ログ
+The Transaction Log is a collection of blocks containing a sequence of transactions.	トランザクション ログは、一連のトランザクションを含むブロックの集まりです。
+Transactions include a set of before and after key/value pairs - typically, this is referred to as an RW set (Read-Write set).	トランザクションには、前後のキーと値のペアのセットが含まれます。 通常、これはRWセット（Read-Writeセット）と呼ばれます。
+Each block (other than the first one) includes a hash of the previous block.	（最初のもの以外の）各ブロックには、前のブロックのハッシュが含まれます。
+This implies that each block contains a reference to all previous blocks through the hash of the previous block.	つまり、各ブロックに前のブロックのハッシュを介して、前のすべてのブロックへの参照が含まれるわけです。
+The Transaction Log is an immutable, append-only, ordered list of all transactions, which is stored on each peer.	トランザクションログは、すべてのトランザクションの不変でアペンド（追加）に特化した、順序付けされたリストで、各peerに格納されています。
+Each peer maintains a copy of the distributed ledger, which includes a log of transactions and the world state results stored in a database as key/values pairs.	各peerは、分散台帳のコピーを保持しています。 これには、トランザクションのログと、キー/値のペアとしてデータベースに格納されたワールドステートの結果が含まれています。
+As you can see below, a ledger state with key=CAR1 and value=Audi.	以下に示すように、ステートはkey=CAR1、value=Audiです。
+There is a ledger state with key=CAR2 and a more complex value {model:BMW, color=red, owner=Jane}.	key=CAR2で、より複雑なvalue {model:BMW, color = red, owner = Jane}のステートがあります。
+The ledger state is used to record application information to be shared via the blockchain.	ステートは、ブロックチェーンを介して共有されるアプリケーション情報を記録するために使用されます。
+This example shows ledger states for two cars, CAR1 and CAR2.	この例では、2台の車CAR1とCAR2のステートを示しています。
+You can see that states have a key and a value.	ステートにはキーと値があることがわかります。
+Your application programs invoke chaincode which access states via simple APIs - they get, put and delete states using the key (e.g. CAR1 , set value to be Mazda ).	あなたのアプリケーション プログラムは、シンプルなAPIを介してステートにアクセスするチェーンコードをinvoke（起動）します - つまり、プログラムは、キーを使用してステートを取得、書き込みおよび削除します（例：”CAR1を値を”Mazda”に設定）。
+Consensus algorithms ensure consistency between all copies of the ledger, so that members will agree to the upcoming changes to the state, in the form of reaching a consensus - but we will discuss this in much more detail later on.	コンセンサス アルゴリズムは台帳のすべてのコピー間の一貫性を保証するため、メンバーはコンセンサスに達するという形で、ステートの今後の変更へ同意することになります。
+We will also interact with the ledger and the world state as part of the labs, but first let's take a closer look at the World State.	これについては後で詳しく説明します。 演習の一部として台帳やワールドステートにも関係しますが、まずワールドステートについてさらに詳しく見てみましょう。
+Understanding the World State	ワールドステートについて理解する
+The World State component is the aggregate state of the ledger at a given point in time.	ワールドステートは、ある特定の時点における台帳のステートの集合体を表すコンポーネントです。
+It is the result of applying the whole Transaction Log, one transaction at a time, to the initial state of the ledger at its birth, when no state existed.	ステートが何も存在しなかった初期状態の台帳に対して、すべてのトランザクション ログを1つずつ順番に適用した結果がワールドステートです。
+However, the World State is used by chaincode and queries to get at the current state of the ledger; this is done instead of applying all the transactions serially to get at the current state, for efficiency.	チェーンコード（chaincode）やクエリ（query）は、台帳の現在のステートを取得する時、すべてのトランザクションを順番に適用する代わりに、ワールドステートを参照します。 これは効率化のために行われます。
+The Transaction Log contains a record of all state transitions to the World State.	トランザクション ログには、ワールドステートへのすべてのステート トランジションの記録が含まれています。
+The World State is stored in a database of key-value pairs.	ワールドステートは、キー/値ペアのデータベースに格納されています。
+The key itself is composed of a unique value, and associated version shows the effect of transactions.	キー自体はユニークな値で構成されており、関連付けられているバージョンはトランザクションの影響を示します。
+With each transaction that affects the key, the version associated with the key is advanced.	キーの値を更新するトランザクションごとに、キーに関連付けられているバージョンが進みます。
+In Hyperledger Fabric, the Transaction Log contains and append only record of transactions.	Hyperledger Fabricでは、トランザクション ログにはトランザクションの記録のみが含まれ、追加されます。
+This record is immutable: once written, the Transaction Log cannot be changed.	この記録は変更不可です。 つまり、一度書き込まれると、トランザクション ログは変更できません。
+Together, the Transaction Log and the World State make up the distributed ledger.	トランザクション ログとワールドステートは一緒に分散台帳を構成します。
+The Smart Contract Layer in Hyperledger Fabric	Hyperledger Fabricのスマートコントラクト レイヤー
+Hyperledger Fabric uses the term chaincode to refer to what most blockchains call a smart contract.	Hyperledger Fabricはチェーンコードという用語を使用しています。 チェーンコードは、多くのブロックチェーンで「スマートコントラクト」と呼ばれるものを指しています。
+Chaincode is simply a computer program (written in a programming language such as Golang, Node.js, etc.) which implements a predefined interface.	チェーンコードは、事前定義されたインターフェイスを実装する単なる(Golang、Node.jsなどのプログラミング言語で書かれた) コンピューター プログラムです。
+Such programs are compiled, deployed across the network, and executed inside a Docker container, which is completely isolated from the ordering service or the Peer processes.	このようなプログラムはコンパイルされ、ネットワーク全体にデプロイされ、Dockerコンテナ内で実行されます。 Dockerコンテナは、ordering serviceまたはPeerプロセスから完全に分離されています。
+Participants can use chaincodes to implement the logic part of the decentralized application, which allows nodes and participants to run and work with the ledger.	参加者は、チェーンコードを使用して非中央集権型アプリケーションのロジック部分を実装できます。 これにより、ノードと参加者は台帳を実行して作業することができます。
+This provides the ability to run business logic in a decentralized system (and update the distributed ledger) in a consistent and replicable way.	これにより、一貫性があり、複製可能な方法で非中央集権型システムにおいてビジネスロジックを実行（および分散台帳を更新）することができます。
+This is done through the SDKs.	これはSDKを介して行われます。
+As the name suggests, deploy transactions are requests to deploy a certain chaincode across the distributed network.	名前が示すように、deployトランザクションは、分散型ネットワーク全体に特定のチェーンコードをデプロイするリクエストです。
+If the request to deploy the chaincode is approved, and the chaincode is deployed globally, chaincode invocations can be achieved using invoke transactions which, as the name indicates, are requests to invoke a call to an already deployed chaincode.	チェーンコードのデプロイリクエストが承認され、チェーンコードがグローバルにデプロイされた場合、invokeトランザクションを使用して、チェーンコードの起動を実行できます。 これは、名前が示すように、すでにデプロイされているチェーンコードに対して、invokeするためのリクエストです。
+Client applications invoke already deployed chaincode on behalf of the participants through transactions.	クライアント アプリケーションは、トランザクションを通じて参加者に代わってすでにデプロイされているチェーンコードをinvokeします。
+Certificate Authority (CA)	​認証局 (CA)
+● Registration of Identities	• IDの登録
+● Enrollment Certificates (ECerts) issuance	• 登録証明書（ECerts）の発行
+● Certificate Renewal/Revocation (using Certificate Revocation Lists - CRLs).	• 証明書の更新/失効（証明書失効リスト - CRLを使用）
+Peer	peer
+● Can update and query the ledger	• 台帳の更新およびクエリが可能。
+● Peers that are endorsers can endorse proposed transactions.	• endorserであるpeerは、proposeされたトランザクションをendorseできる。
+These endorsements are being evaluated against the Endorsement Policy (you will play with this in the lab exercises).	提案されたトランザクションを承認できる。 これらのendorsementは、endorsement policy（エンドースメント ポリシー）に照らして評価される（これについては演習で試すことになる）。
+● Manage the ledger (both the Transaction Log and the World State).	• 台帳を管理（トランザクション ログとワールドステートの両方）。
+Ordering Service	ordering service
+● Can be run by one or several nodes	• 1つまたは複数のノードで実行可能
+● Creates the actual blocks of the blockchain (by ordering and grouping transactions)	• （トランザクションの順序付けとグループ化によって）ブロックチェーンの実際のブロックを作成
+● Peers will commit changes to the ledger only after the transaction has been ordered.	• トランザクションの順序づけ後のみ、peerは台帳への変更を確定
+In the Hyperledger Fabric workflow diagram on the previous page, other than having an application using the Hyperledger Fabric SDK to interact with the Fabric CA or the ledger, you can also see three Endorsing Peers and three non-Endorsing Peers (which is just a Committing Peer, or Committer, marked in orange).	前のページのHyperledger Fabricワークフロー図では、Hyperledger Fabric SDKを使用してFabric CAまたは台帳とやりとりするアプリケーションがあることに加え、3つのEndorsing Peersおよび3つのNon-Endorsing Peers（Committing PeerまたはCommitterであり、オレンジ色で表示）も確認できます。
+We will get back to this diagram when we dive deeper into the lifecycle of a Hyperledger Fabric transaction, but at this point, you should note that there may be cases where three Endorsing Peers validate and endorse a proposed transaction (the Endorsers are marked in blue), while some other Endorsers do not endorse the proposed transaction.	Hyperledger Fabricトランザクションのライフサイクルをさらに深く掘り下げると、この図に戻りますが、現時点では、3つのEndorsing peersがproposeされたトランザクションを検証してendorseする場合があり得ることに注目してください（Endorserは青色で表示）ことに注意してください。 一方、他のEndorserは提案されたトランザクションをendorseしていません。
+Hyperledger Fabric's endorsement model is very flexible in the sense that there is an agreed-upon Endorsement Policy, which basically states under what conditions a transaction is considered endorsed or widely accepted .	Hyperledger Fabricのendorsement modelは、合意されたEndorsement Policyがあるという意味で非常に柔軟です。 これは、基本的にどのような条件下でトランザクションが「endorseされる」つまり「広く受け入れられている」と見なされるかを示します。
+In other words, we can look at the endorsement policy in terms of what needs to happen to get a proposed transaction to be approved or marked as valid by the endorsers.	言い換えれば、提案されたトランザクションが「approve」されるか、またはendorserによって「有効」としてマークされるようにするには「何が必要なのか」という観点からendorsement policyを検討することができます。
+Transactions must be written to the ledger in the order in which they appear in a block, even though they might be between different sets of participants within the network.	トランザクションは、ネットワーク内の異なる参加者のセット間であっても、ブロックに表示される順序で台帳に書き込まれなければなりません。
+For this to happen, the order of transactions must be established, and a method for rejecting bad transactions that have been inserted into the ledger in error (or maliciously) must be put into place.	これを実現するためには、トランザクションの順序を確立し、台帳に誤って（または悪意を持って）挿入された不良トランザクションを拒否する方法を整えなければなりません。
+This happens through the setting of a bitmask for bad transactions during validations and is stored locally on every validator's Transaction Log.	これは、検証中に不正なトランザクションのビットマスクを設定することで発生し、すべてのバリデータのトランザクションログにローカルに格納されます。
+Summary	まとめ
+In this chapter, we familiarized ourselves with Hyperledger and its various frameworks and modules.	この章では、Hyperledgerとそのさまざまなフレームワークやモジュールについて詳しく説明しました。
+Then, we dove into the Hyperledger Fabric's modular architecture, its various components and their roles.	そして、Hyperledger Fabricのモジュラー アーキテクチャ、そのさまざまなコンポーネント、およびその役割について深く掘り下げました。
+You should now be familiar with more specific Hyperledger Fabric terms (such as chaincode), the key actors in each Hyperledger Fabric network, and the type of nodes that comprise typical Hyperledger Fabric deployments.	（チェーンコードのような）より具体的なHyperledger Fabricの用語、各Hyperledger Fabricネットワークのキー アクター、および一般的なHyperledger Fabricのデプロイを構成するノードの種類について精通しているはずです。
+We hope that you are now able to see how some of these components are connected and fit together.	これらのコンポーネントのいくつかがどのように関連し合っているのかも理解できているでしょう。
+This is probably a good time for you to start working with Lab 1 and see the components we went over here, in practice.	ですから、このあたりで演習1の作業を開始し、実際にここで行ったコンポーネントを確認してみましょう。
+Setting Up a Fabric Network	Fabricネットワークの設定
+Hyperledger Fabric Transactions	Hyperledger Fabricトランザクション
+By the end of this chapter, you should be able to:	本章の終わりまでに、次のことができるようになります。
+● Discuss the concept of World State.	• ワールドステートの概念について説明する。
+● Understand how business logic is implemented in Hyperledger Fabric through chaincode.	• ビジネス ロジックが、チェーンコードを介してどのようにHyperledger Fabricに実装されるかを理解する。
+● Examine the various Hyperledger Fabric transaction types used to read from and write to the distributed ledger.	• 分散台帳への読み書きに使用されるさまざまなHyperledger Fabricトランザクション タイプを検証する。
+The Ledger - A Closer Look	台帳 - 詳細
+Previously, we talked about the distributed ledger component, which is comprised of a World State (the versioned list of key-value pairs) and the Transaction Log (the collection of transactions that actually affect the World State).	これまでは、ワールドステート（バージョン管理されたキー/値ペア リスト）とトランザクション ログ（実際にワールドステートを更新するトランザクションの集まり）で構成される分散台帳コンポーネントについて説明しました。
+Next, we will take a closer look at these two components.	次に、これら2つの要素について詳しく見ていきます。
+Later, we will explore how transactions work.	その後で、トランザクションがどのように機能するのかを検討します。
+Ledgers are not a new concept and they have been in use for quite a while.	台帳は新しい概念ではなく、長い間使用されてきました。
+Here is a picture of a written German ledger from 1828.	これは1828年から記載されてきたドイツの台帳の写真です。
+Such a ledger was used to serve as a permanent summary of all amounts entered in supporting journals which listed individual transactions.	このような台帳は、個々の取引をリスト補助仕訳帳に入力されたすべての金額を恒久的にまとめたものとして機能するように使用されました。
+Different ledgers are used to log different types of amounts (a concept which is still in use today for bookkeeping and accounting).	さまざまな台帳がさまざまな種類の金額を記録するために使用されます（簿記および会計に現在でも使用されている概念）。
+For example, there are sales ledgers which consist of financial transactions made by customers/buyers, purchase ledgers that record purchases and spending, etc.	たとえば、顧客/購入者によって行われた金融取引からなる販売元帳、購入や支出を記録する購入元帳などがあります。
+In general, ledgers are used to list out accounts, liabilities, income, expenses, etc.	一般に、元帳は勘定、負債、収益、費用などを記載するために使用されます。
+A digital ledger has a very similar structure.	デジタル台帳は非常によく似た構造を持っています。
+In Hyperledger Fabric, the Transaction Log in particular is logically very similar to the ledger we just described (which logs activity == transactions).	Hyperledger Fabricでは、特にトランザクション ログは、先ほど説明した台帳と論理的に非常によく似ています（アクティビティ==トランザクションを”ログ”する」）。
+The World State part of the ledger has a similar key (column) and a value column, which are versioned.	台帳のワールドステート部分には、同様の「キー」（列）と「値」列があり、バージョン管理されています。
+Using the Transaction Log, we keep track of the transactions that are changing the ledger's World State in each iteration of change, or put differently, in each version.	トランザクション ログを使用して、変更の各「ループ」、別の言い方をすれば、各バージョンにおける台帳のワールドステートを変更しているトランザクションを追跡します。
+Just like in a log file, the changes to the World State are carried through transactions that create the next version of the World State.	ログファイルと同じように、ワールドステートへの変更は、ワールドステートの「次のバージョン」を作成するトランザクションによって行われます。
+Such changes are added to the ledger's log, in an append-only way.	このような変更は、 アペンド（追加）のみの方法で台帳のログに追加されます。
+That is, we always append and not erase or change transactions that are already written to the ledger.	つまり、すでに台帳に書き込まれているトランザクションを常に追加しますが、消去または変更はしません。
+This is why you hear so often the term immutable ledger - the written transactions are immutable.	これが「書き換えできない台帳 (immutable ledger)」という言葉をよく耳にする理由です - 書かれたトランザクションは書き換えできないなのです。
+This is a similar concept to the permanent summary of the results of all the amounts/transactions entered (or logged ) so far.	これは、これまでに入力された（または「ログに記録された」）すべての金額/取引の結果の恒久的な要約と同様の概念です。
+One thing that we would like to emphasize here is that in typical blockchain deployments, and in Hyperledger Fabric in particular, the ledger is distributed among the participants of the blockchain network.	ここで強調したいことの1つは、典型的なブロックチェーン、特にHyperledger Fabricでは、台帳はブロックチェーンネットワークの参加者間に分散されているということです。
+The technology and mechanism that are used - such underlying technology is commonly referred to as the DLT (Distributed Ledger Technology).	使用されている技術とメカニズム - そのような基礎技術は一般にDLT（Distributed Ledger Technology：分散台帳技術）と呼ばれています。
+So in a line, we have a versioned set of key/value pairs that are distributed among peers.	つまり、一連のバージョン管理された一連のキー/値ペアがpeer間に分散されています。
+If we look at the World State as the state of the world , such recorded changes to the state are made through some business logic.	ワールドステートを「世界の状態」と見ると、そのような記録されたステートへの変更は、ビジネス ロジックによって行われます。
+If you recall, when we talked about decentralized and distributed systems, we mentioned that one of the key challenges in such systems is to keep things in sync .	非中央中堅型システムと分散型システムについて説明したとき、そのようなシステムにおける重要な課題の1つが物事を”同期させる”ことであると述べました。
+For example, we would like all the nodes to run the same version of some logic , or to know that each node in the network is looking at the same version of data. Here is where smart contracts come to the rescue.	たとえば、すべてのノードで同じバージョンの”ロジック”を実行したり、ネットワーク内の各ノードが同じバージョンのデータを参照していることを知る必要があります。
+Smart contracts were conceptualized by Nick Szabo in 1994, who suggested that:	スマートコントラクトは1994年にNick Szaboによって作られた概念で、それをこのように説明しています。
+a smart contract is a computerized transaction protocol that executes the terms of a contract .	「スマートコントラクトは、契約条件を実行するコンピューター化されたトランザクション プロトコルです。」
+While different blockchain frameworks may have different uses, interpretations and/or implementations of a smart contract, let's generalize a bit and look at a smart contract in this context - as a user-defined program that can self-execute some logic.	異なるブロックチェーン フレームワークでは、スマートコントラクトの使用方法、解釈、実装が異なる場合がありますが、少し一般化して、ロジックを自己実行できるユーザー定義プログラムとしてのコンテキストでスマートコントラクトを見てみましょう。
+This program is also distributed or replicated across a decentralized system or network - which is also able to disintermediate third parties.	このプログラムは、非中央集権型システムまたはネットワーク全体に分散、または複製されています。これによって、第三者を中抜きすることができます。
+For example, a smart contract can be a user-defined portion of code that will transfer a digital asset (or update some values that reflect some balance or ownership) between blockchain participants.	たとえば、スマートコントラクトとは、ブロックチェーン参加者間でデジタル資産を転送（または何らかの残高や所有権を反映する値を更新）するコードのユーザー定義部分のことです。
+Chaincode	チェーンコード
+Using Hyperledger Fabric's terminology, smart contracts are called chaincode because it's some logic or code which is distributed through the Hyperledger Fabric blockchain.	Hyperledger Fabricの用語を使用すると、スマートコントラクトはチェーンコードと呼ばれます。 Hyperledger Fabricブロックチェーンを通じて配布されるロジックまたはコードであるからです。
+An important thing to emphasize here is that the chaincode (or smart contract) just moved tokens (or assets) between two parties (Alice and Bob) without an intermediary - that is, without a third party (or a man-in-the-middle).	ここで強調しておくべき重要な点は、チェーンコード（またはスマートコントラクト）が仲介者なし、つまり第三者なしで（または間に人を入れずに）二者間（AliceとBob）でトークン（または資産）を「移動」したことです。
+Many blockchain advocates really appreciate the potential of blockchain technology as a means to facilitate such direct transactions (or asset transfers) without the need for both parties to go to a third party (which in many cases both parties need to trust).	多くのブロックチェーン推奨者は、双方が第三者（多くの場合、双方を信頼することが必要）に行かなくてもそのような直接取引（または資産転送）を容易にする手段としてのブロックチェーン技術の可能性を高く評価します。
+For example, in today's non-decentralized world, when using US Dollars for example, bank transfers, title registrations or updates (e.g. registering or selling a car or a house) require at least one more party in the middle - in the United States, this intermediary can be the DMV (Department of Motor Vehicles), a title registration body, the parties' banks, and, in many cases, also a central clearing house.	たとえば、今日の非分散型の世界では、たとえば米ドルを使用する場合、銀行振込、所有権登録、または更新（車や家の登録または販売など）には、仲介する関係者が少なくとももう1つの必要です。 米国ではこの仲介者は、DMV（Department of Motor Vehicles）、所有権登録機関、当事者の銀行、そして多くの場合、中央決済機関である可能性があります。
+Blockchain technology in general, and Hyperledger Fabric in particular, are regarded as upcoming and promising technology with the potential to disrupt and disintermediate many such digital asset transfers, or updates to the World State using valid transactions.	一般にブロックチェーン技術、特にHyperledger Fabricは、デジタル資産の移転や有効なトランザクションを使用したワールドステートへの更新を中断したり、仲介者を中抜きする可能性を持つ、今後の有望な技術と見なされています。
+Excited?	わくわくしましたか?
+So were we when we first learned about this technology.	私たちがこの技術について初めて知った時もそうでした。
+Next, let's see how such user-defined programs, called chaincodes, are used to change the ledger's state.	次に、チェーンコードと呼ばれるこのようなユーザー定義プログラムを使用して台帳のステートを変更する方法を見てみましょう。
+Chaincode is used to initialize and manage the ledger state through transactions submitted by participants or their applications.	チェーンコードは参加者または参加者のアプリケーションによって送信されたトランザクションを通じて、台帳の状態を初期化および管理するために使用されます。
+Let's take a look at how this works.	どのように機能するか見てみましょう。
+Transactions: Deploy	トランザクション：deploy
+Users (running client applications) that would like to add some logic to the blockchain they are part of can write their business logic or chaincode, and then request the blockchain network to deploy it.	自分が属するブロックチェーンにロジックを追加したい（クライアント アプリケーションを実行している）ユーザーは、ビジネス ロジックまたはチェーンコードを記述してから、ブロックチェーン ネットワークにそれをデプロイするようにリクエストできます。
+Users write their code (in Golang, Node.js, etc.) against the Hyperledger Fabric chaincode interface.	ユーザーは自分のコードを（Golang、Node.jsなどで）Hyperledger Fabricチェーンコード インターフェイスに対して書きます。
+An example of a chaincode written in Go language can be found further in this chapter in the Anatomy of Chaincode section.	Go言語で書かれたチェーンコードの例は、この章の チェーンコードの構造のセクションで紹介します。
+Once the code is written (the coding, debugging can be done separately), the client application can use the SDK to deploy a chaincode through a Hyperledger Fabric transaction.	コードが記述されると（コーディング、デバッグは別々に実行できます）、クライアント アプリケーションはSDKを使用してHyperledger Fabricトランザクションを通してチェーンコードをデプロイできます。
+Effectively, a deploy transaction is a request to deploy a certain chaincode across the distributed network.	実際には、deployトランザクションは、分散型ネットワーク全体に特定のチェーンコードを配置するリクエストを行います。
+This requires rights to deploy the chaincode as proven by the signatures attached to the certificates of deployment.	これには、チェーンコードをdeployする権限が必要です。 権限はdeployトランザクションに対する電子署名を検証することで確認できます。
+The chaincode must be then installed and instantiated to be properly deployed.	次に、チェーンコードをインストールしてインスタンス化し、適切にdeployする必要があります。
+Upon success, the requested chaincode has been deployed to the blockchain network.	成功すると、リクエストされたチェーンコードはブロックチェーン ネットワークにdeployされます。
+Transactions: Invoke	トランザクション：invoke
+Invoke transactions are requests to call (or yes, invoke ) an already deployed chaincode.	invokeトランザクションは、すでにデプロイされているチェーンコードを呼び出す（つまり”invoke”する）リクエストです。
+That is, when a user or a client application would like to make a change to the ledger's state, they use the SDK to propose that all the peers will make the change that will be made by the requested chaincode invocation.	つまり、ユーザーまたはクライアント アプリケーションが台帳のステートを変更する場合、SDKを使用して、すべてのpeerがリクエストされたチェーンコードの呼び出しによって行われる変更を行うことを提案します。
+This part of the design resembles a database stored procedure, where such calls to the database stored procedure are done through Hyperledger Fabric (invoke) transactions.	このデザイン部分は、データベース ストアド プロシージャに似ています。 データベース ストアド プロシージャの呼び出しがHyperledger Fabric（invoke）トランザクションを通して行われるところです。
+We will not get too much into it, but we should mention that a chaincode that is being invoked runs in a secured Docker container.	あまり詳細については触れませんが、呼び出されているチェーンコードはセキュリティ保護されたDockerコンテナ内で実行されることに注意してください。
+The exact details of what happens during invocation can be seen in the Anatomy of Chaincode section, but in short, this type of transaction calls the Invoke function from the chaincode while passing the operation name (generally referred to as function name ) and parameters for the transaction.	invoke中に何が起こるかの正確な詳細は、 チェーンコードの構造の項で説明しますが、要するに、このタイプのトランザクションはオペレーション名（一般に 関数名と呼ばれる）とトランザクションのパラメーターを渡す一方、チェーンコードからInvoke関数を呼び出します。
+Of course, the chaincode has to be properly deployed, installed and instantiated before Invoke can be executed on it.	もちろん、invokeを実行する前にチェーンコードを正しくデプロイ、インストール、およびインスタンス化しなければなりません。
+Transactions: Query	トランザクション：query
+The third type of Hyperledger Fabric transaction is the query transaction.	3つ目のタイプのHyperledger Fabricトランザクションは、queryトランザクションです。
+A query transaction can be done through the CLI (command-line interface) and/or programmatically through the Hyperledger Fabric SDKs.	queryトランザクションは、CLI（コマンドライン インターフェイス）やHyperledger Fabric SDKを通して、プログラムで実行できます。
+Query transactions usually go through the Invoke chaincode function as well.	queryトランザクションも通常、Invokeチェーンコード関数を使用します。
+The main difference is that queries don't modify the ledger in any way, instead just returning data from it.	おもな違いは、queryは台帳を変更せず、単に台帳からのデータを返す点です。
+Reading from the Ledger, Writing to the Ledger	台帳からの読み取り、台帳への書き込み I
+An invoked chaincode can read the state of the ledger (e.g. read or obtain the current value of BalanceOfAlice) or it can update (or write to) the ledger.	invokeされたチェーンコードは、台帳のステートの読み取り（たとえば、BalanceOfAliceの現在の値を読み取るか取得する）、あるいは台帳の更新（または書き込み）をすることができます。
+Updating the ledger includes either adding a new key (that was not seen before) to the key/value pairs, or updating a value associated with an existing value of the key which is already in the set of the key/value pairs.	台帳の更新には、（以前には見られなかった）新しいキーをキー/値ペアに追加すること、またはすでにキー/値ペアのセットの中にあるキーの既存の値に関連する値を更新することを含みます。
+Client applications invoke already deployed chaincode on behalf of the participants through transactions.	クライアント アプリケーションは、すでにデプロイされているチェーンコードをトランザクションを通じて参加者に代わってinvokeします。
+This is why we believe that it may be somewhat more intuitive to think about a chaincode function invocation (through an invoke transaction) in a Hyperledger Fabric blockchain deployment as the decentralized version of the stored procedure paradigm.	Hyperledger Fabricにおけるチェーンコード関数の呼び出しは、ストアド プロシージャーのようなものだと考えると、理解しやすいかもしれません。
+The difference is that here, instead of a call to a stored procedure which is executed and operates inside or on top of a centralized database, Hyperledger Fabric invoke transactions are executed by peers, and the changes are committed by each committing peer that is updating their local World State.	ただし、中央集権型データベースの内部で実行・操作されるストアド プロシージャーとは違って、Hyperledger Fabricのトランザクションは複数のpeerで実行されてから、そのトランザクションが各々のcommitterでコミットされ、ワールドステートが更新されます。 ​
+Further in the course, there are two hands-on labs that are focused on making sure that you put all this theory into practice: Lab 2 and Lab3.	さらにこのコースでは、この理論をすべて実践することに重点を置いた 2 つのハンズオンラボがあります。 演習 2 と演習 3 です。
+You will probably need to go over the next chapter before attempting to do Lab 3, but we highly recommend that you should put the material we covered here to use by completing Lab 2.	演習3 を実行する前に、次の章に進む必要がありますが、演習 2 を完了して、ここで取り上げた資料を使用できるようにすることを強くお勧めします。
+Lab 2 is focused on working with chaincode and World State, which will show you how to deploy a chaincode using the command-line interface (CLI), how to invoke chaincode to update the World State through transactions, and later query and examine the World State.	演習2は、チェーンコードとワールドステートの操作に焦点を当てています。 ここでは、コマンドライン インターフェイス（CLI）を使用してチェーンコードをデプロイする方法、トランザクションを通してワールドステートを更新するチェーンコードを呼び出す方法、そして後でワールドステートを照会して調べる方法を説明します。
+Hyperledger Fabric Transactions - The Full Lifecycle	Hyperledger Fabric トランザクション - ライフサイクル全体
+● Discuss the reasons and some of the requirements that lead to the current design decisions behind Hyperledger Fabric 1.x architecture.	• Hyperledger Fabric 1.xアーキテクチャの背後にある現在のデザイン上の決定につながる理由といくつかの要件について説明する。
+● Examine the various components of the consensus services layer (ordering service, endorsement policies, validations, etc.).	• コンセンサス（合意形成）サービス層のさまざまな構成要素（ordering service、endorsement policy、検証など）を調査する。
+● Walk through the full lifecycle of a Hyperledger Fabric transaction.	• Hyperledger Fabricトランザクションのライフサイクル全体を確認する。
+Getting to Consensus	コンセンサスを得る
+Next, we will dive into consensus, an important aspect of blockchain technology in general.	次に、ブロックチェーン テクノロジー全般の重要な側面であるコンセンサスについて見ていきます。
+We will then look at how things are implemented in Hyperledger Fabric in particular.	そのあと、Hyperledger Fabricで特に機能がどのように実装されるのかを見ていきます。
+According to the Hyperledger Architecture color: blackpaper (2017) , consensus services support the process by which a network of nodes provides a guaranteed ordering of transactions and validates the block of transactions. Consensus must provide the following core functionality:	Hyperledger Architecture color: blackpaper (2017) によれば、consensus servicesは「ノードのネットワークがトランザクションを確実に順序付けし、トランザクションのブロックを検証するプロセス」をサポートし、以下のコア機能を提供する必要があります。
+● Confirms the correctness of all transactions in a proposed block, according to endorsement and consensus policies.	• endorsement policy（エンドーズメント ポリシー）とコンセンサスポリシーに従って、提案されたブロック内のすべてのトランザクションの正確さを確認する。
+● Agrees on order and correctness and hence on results of execution (implies agreement on global state).	• 順番と正確さ、そして実行の結果へ同意する（グローバルな状態に関する合意を意味する）。
+● Interfaces and depends on smart-contract layer (specifically, chaincode and transaction validation) to verify correctness of an ordered set of transactions in a block .	• ブロック内の順序付けられたトランザクションの正しさを検証するために、スマートコントラクト レイヤー（特に、チェーンコードとトランザクションの検証）と連結・依存する。
+Distributed Ledger (Recap)	分散台帳（まとめ）
+Previously we talked about the distributed ledger, which is comprised of a Transaction Log and a World State.	前章までに、トランザクション ログとワールドステートで構成される分散台帳について説明しました。
+We learned about how a client application can deploy chaincode so that it becomes available for future calls or, more precisely, distributed method invocations through an invoke transaction that may read from and/or update the ledger.	クライアント アプリケーションがチェーンコードをdeployして将来の呼び出しや、より正確には台帳の読み取りや更新を行うことができるinvokeトランザクションを介した分散メソッドの呼び出しに対応できるようにする方法について学びました。
+We also hope that you have completed Lab 2 by now, which gave you the opportunity to get some hands-on experience with real chaincode, as well as querying the ledger.	また、実際のチェーンコードの使用や、台帳にクエリするハンズオン経験が得られる演習2を完了しましたね。
+The Importance of Ordering Transactions Correctly	トランザクションの正しい順序付けの重要性I
+We see that the order in which these two transactions are applied really makes a difference.	これら2つのトランザクションが適用される順序によって、実際に違いが生じることがわかります。
+As a result of applying T1, and then T2, the value of BalanceOfAlice is 10, while when T2 is applied first, and then T1, the value of BalanceOfAlice is 5.	T1を適用し、次にT2を適用した結果、BalanceOfAliceの値は10になり、T2を最初に適用した後、T1にするとBalanceOfAliceの値は5になります。
+This is a well-known concern with distributed and/or parallel computing.	これは、分散コンピューティングや並列コンピューティングに関するよく知られた問題です。
+If there is only one transaction at a time, this would not be a concern.	1度に1つのトランザクションしかない場合、これは問題になりません。
+But, since such systems are built to scale (in number of peers/clients, applications and transactions), we need to support multiple transactions that may access and visit the same key/value pair more than just once.	しかし、そのようなシステムは（peer/クライアント、アプリケーション、およびトランザクションの数において）スケールするように構築されているため、同じキー/値のペアに複数回アクセスして”訪問する”可能性がある複数のトランザクションをサポートする必要があります。
+The system must guarantee consistency.	システムは一貫性を保証する必要があります。
+We can't have the BalanceOfAlice being equal to maybe 5, or maybe 10.	BalanceOfAliceをたぶん5、あるいはたぶん10にするといったことはできません。
+We need a deterministic procedure that cannot be interpreted in different ways, which guarantees that everybody has the same World State in their ledgers.	異なる「解釈」をすることができない決定論的な手順が必要です。 そうすることで、誰もが台帳に同じワールドステートを確実に持つことができます。
+Enter ordering service!	では、ordering serviceについて詳しく見ていきましょう。
+Ordering Service in Hyperledger Fabric	Hyperledger Fabricのordering service
+Because determinism and consistency are so important, the role of the Ordering Service is vital.	決定論と一貫性が非常に重要であるため、ordering serviceの役割は不可欠です。
+An ordering service can be run by one or several nodes.	ordering serviceは1つまたは複数のノードで実行できます。
+It creates the actual blocks of the blockchain (by ordering and grouping transactions), while making sure that issues (inconsistencies) like the ones we mentioned will not happen.	先ほど説明したような問題（矛盾）が起こらないようにしながら、（トランザクションの順序付けやグループ化により）ブロックチェーンの実際のブロックを作成します。
+But, how does the ordering service help in preventing such inconsistencies?	しかし、そのような矛盾を防ぐのにordering serviceはどのように役立つのでしょうか？
+We really do not want some peers to believe that the global World State has BalanceOfAlice = 5 while other peers believe that BalanceOfAlice = 10.	グローバルなワールドステートでBalanceOfAlice = 5であると信じているpeerもあり、BalanceOfAlice = 10であると信じているpeerもある、というのでは困ります。
+This is done by using an extra step, in which endorsing peers are simulating each chaincode invocation, and are collecting a set of all the key/value pairs that are being read by the proposed transaction/chaincode invocation, and another set of all the key/value pairs that are going to be written or updated by the proposed transaction/chaincode invocation.	これは、追加のステップを使用することによって行われます。 このステップでは、endorsing peerが各チェーンコードの呼び出しをシミュレートし、実行しようとするトランザクション/チェーンコードの呼び出しによって読み取りされるすべてのキー/値ペアのセット、および実行しようとするトランザクション/チェーンコードの呼び出しによって書き込みまたは更新が行われる予定のすべてのキーの別のセットを収集します。
+Later on in the flow (we will go over all the steps shortly), the node(s) running the ordering service will examine all such read sets and write sets and will work to order and group transactions into the next block, so that there aren't any read and write from/to the same key/value pair in the same block.	フローの後半で（まもなくすべての手順を説明します）、ordering serviceを実行しているノードは、そのようなすべてのread setsとwrite setsを調べ、トランザクションを順序付けして次のブロックにグループ化します。 そうして、同じブロック内の同じキー/値のペアに対して読み書きできなくします。
+The Endorsement Validation	endorsementの検証（validation）
+Hyperledger Fabric has a set of peers connected to each other (this is handled by the Network Protocol); each peer has a copy of the set of key/value pairs of the Distributed Ledger (which has all the transactions and a World State).	Hyperledger Fabricには、互いに接続された複数のpeerがあります（これはネットワークプロトコルによって処理されます）。 各peerは、（すべてのトランザクションとワールドステートを持つ）分散台帳のキー/値ペアのセットのコピーを持っています。
+We saw how changes can be made to the World State by invoking chaincode (smart contracts) that can read values from the World State and update the ledger.	ワールドステートから値を読み取り、台帳を更新することができるチェーンコード（スマートコントラクト）を呼び出すことによって、ワールドステートに対してどのように変更を加えることができるかを説明しました。
+We also saw the importance of getting the order of such transactions right, which is where the ordering service plays a big role - without the ordering service we may end up with inconsistencies or non-deterministic behavior.	また、このようなトランザクションの順序を正しく取得することの重要性についても確認しました。 これはordering serviceが大きな役割を果たすところです。 ordering serviceがないと、矛盾や不確定な動作が発生する可能性があります。
+Next, we will discuss about endorsement validation.	次に、endorsementの検証（validation）について説明します。
+This is where the peers that are the endorsers play an important role.	ここは、endorserであるpeerが重要な役割を果たします。
+Effectively, we do not want a system where any proposed transaction, or put differently, any request to update the ledger would blindly get accepted.	実質的に、実行しようとするトランザクション、別の言い方をすれば、台帳の更新リクエストが、「やみくもに受け入れられる」ようなシステムは望ましくありません。
+This is where the endorsing peers (also referred to as validators) can validate and either endorse (vote in favor) or vote against a proposed transaction.	そこで、endorsing peer（validatorとも言われる）がトランザクションを検証し、そのトランザクションをendorseする(支持する)または拒絶することができます。
+In Hyperledger Fabric, there is an agreed-upon endorsement policy which basically states under what conditions a transaction is considered endorsed or widely accepted.	Hyperledger Fabricには、基本的にトランザクションが「endorsed (承認された)」または「widely accepted (広く受け入れられた)」と見なされる条件を明記した合意済みのendorsement policyがあります。
+In other words, we can look at the endorsement policy in terms of what needs to happen to get a proposed transaction to be approved or marked as valid by the endorsers.	言い換えれば、実行しようとするトランザクションがendorserによって「approved（承認される）」または「valid（有効）としてマークされる」ためには「何が必要なのか」という観点からendorsement policyを検討することができます。
+In Lab 4 at the end of this chapter, you will go over an endorsement policy in detail.	この章の終わりにある演習4では、endorsement policyについて詳しく説明します。
+For now, think about a very simple endorsement policy which states that for a transaction to be considered endorsed, we require a majority of endorsers to endorse it.	今のところ、トランザクションが承認されていると見なされるには、それを承認するためにendorserの過半数を必要とするという非常に単純なendorsement policyについて考えてみましょう。
+So, if we have 3 endorsers, a simple endorsement policy may require that we need to obtain at least 2 endorsers saying yes.	したがって、3つのendorserがいる場合、シンプルなendorsement policyでは、最低2つのendorserの承認を取得する必要があります。
+The last step here, having reached consensus, is to apply the changes to the ledger: adding the transaction to a block, distributing the block, and having all the peers commit the changes to their local copy of the ledger (updating the Transaction Log and the World State).	ここでの合意形成した最後のステップは、変更を台帳に適用することです。 ブロックへのトランザクションの追加、ブロックの配布、およびすべてのpeerが台帳のローカル コピーへの変更を確認すること（トランザクション ログとワールドステートの更新）です。
+Lifecycle of a Transaction	トランザクションのライフサイクル
+Next, we will go over step-by-step through the full lifecycle of a transaction, from its very first initiation (proposal) by a client application, through all the steps needed to get the transaction into a block and ultimately to update the distributed ledger and the World State.	次に、トランザクションのライフサイクル全体をクライアント アプリケーションによる最初の開始（proposal）から、トランザクションをブロックにまとめて最終的に分散台帳とワールドステートを更新するまでに必要なすべてのステップを段階的に見ていきます。
+Propose Transaction	トランザクションの提案
+Step 1: The client proposes a transaction to the endorsing peers for endorsement.	ステップ1：クライアントは、endorsing peerにendorsementを受けるためのトランザクションを提案します。
+Endorsers Simulate the Proposed Transaction	endorserが提案されたトランザクションをシミュレートする
+Step 2: Each of the three endorsing peers (or endorsers) will execute the proposed transaction.	ステップ2：3つのendorsing peer（またはendorser）のそれぞれがproposeされたトランザクションを実行します。
+However, it is important to note that, at this point, these executions are not updating each peer's local ledger.	ただし、この時点では、この実行によって各peerのローカル台帳が更新されていないことが重要です。
+The client application is using the SDK because it needs to obtain or collect cryptographically signed endorsements from the endorsers.	クライアント アプリケーションはSDKを使用しています。 endorserから電子署名されたendorsementを取得または収集する必要があるためです。
+While simulating the execution of a chaincode, the endorser is constructing a list of the data (keys and values) that are read from the ledger (by the chaincode) and the data that will be written if the chaincode was executed in a non-simulation mode.	チェーンコードの実行をシミュレートしている間、endorserは台帳から（チェーンコードによって）読み取られるデータ（キーおよび値）のリスト、およびチェーンコードが非シミュレーション モードで実行された場合に書き込まれるデータのリストを作成しています。
+These are two sets: read set and a write set.	これらはread setsとwrite setsの2つのセットです。
+Proposal Response	提案への回答
+Step 3: Each endorser returns its signed endorsement back to the client (through the SDK), with the read set and the write set which the endorser obtained through simulating the proposed transaction's chaincode.	ステップ3：各endorserは、署名済みのendorsementをクライアントに（SDKを介して）返します。 endorserがトランザクションをシミュレートして得られたread setとwrite setも返されます。
+Broadcast Request	ブロードキャスト リクエスト
+Step 4: Through the Hyperledger Fabric SDK the client/application submits to the ordering service the signed endorsements (with the read sets and the write sets) that were received from the endorsers.	ステップ4：Hyperledger Fabric SDKを介して、クライアント/アプリケーションは、endorserから受け取った（read setとwrite setを含む）署名付きendorsementをordering serviceに送信します。
+This step can be described as a request for the proposed and endorsed transaction to get into a block and get broadcasted.	このステップは、proposeされendorseされたトランザクションをブロックに入れ、ブロードキャストするというリクエストとして説明することができます。
+Please note that other SDKs/clients/applications may submit some other transactions to the ordering service; we cannot assume that we have only one single transaction in the system.	他のSDK /クライアント/アプリケーションが他のトランザクションをordering serviceに送信する可能性があることに注意してください。 システム内にトランザクションが1つしかないとは仮定できません。
+Validate Endorsements and Order Transactions	endorsementとorder transactionの検証
+The orderer gathers transactions into a block in the same order it received them.	ordererは、受け取った順序でトランザクションをブロックにまとめます。
+It imposes a deterministic order of the transactions in a block.	ブロックのトランザクションの決定論的な順序を課すのです。
+Additionally, it creates an order of blocks, also guaranteeing that it never creates any transactions by itself.	さらに、ordererはブロックの順番を決めます。 また、orderer自身はトランザクションを作成することは決してありません。
+Delivery guarantees: the orderer has to deliver the blocks in the order that it created them, with total-order guarantees to the committing peers as well as the other peers.	デリバリー保証：ordererはcommitting peerや他のpeerに対して、ordererが作成した順序通りに(全順序を保障して)ブロックをデリバリーする必要があります。
+In fact, the orderer channel has both inbound guarantees (for transactions from the application peers) using broadcast() and outbound guarantees for delivering blocks of transactions, using deliver(), to the client and committing peers.	実際、ordererチャネルには、broadcast()を使用した（アプリケーションpeerからのトランザクションに対する）インバウンド保証と、 deliver()を使用したトランザクションのブロックのクライアントおよびcommitting peerに対するアウトバウンド保証があります。
+Deliver Transaction	トランザクションを配信する
+Step 6: The block is being delivered/distributed from the ordering service to the committing peers using the peer-to-peer network and the gossip protocol.	ステップ6：ブロックは、P2Pネットワークおよびゴシップ プロトコルを使用してordering serviceからcommitting peer へ配信/配布されています。
+Validate and Update the Ledger	台帳の検証と更新
+Step 7: Peers will commit changes to the ledger only after the transaction has successfully gone through the full cycle.	ステップ7：トランザクションがサイクル全体を通過した後にのみ、peerは台帳への変更をコミットします。
+So, a block is added (see the green block added in the diagram by each committing peer).	そのため、ブロックが追加されます（図では、各committing peerによって緑色のブロックが追加されています）。
+Every committing peer validates against the endorsement policy.	すべてのcommitting peerは、endorsement policyに照らして検証を行います。
+Also, committing peers check to ensure the read-sets are still valid for the current state.	また、committing peerは、現在のステートに対してread setsがまだ有効であることを確認します。
+This is an important step - peers do not blindly trust the ordering service.	peerはordering serviceを「やみくもに信用」するわけではないため、これは重要なステップです。
+From the first step when the client/application makes a transaction proposal all the way through the endorsers, when enough endorsements are received, the proposed transaction and its endorsement go through an ordering service, which checks the signed endorsements, verifies that the endorsement policy is satisfied, adds it to a block (possibly groups it with other transactions) and broadcasts it/delivers that block to all the peers.	クライアントやアプリケーションがトランザクションをproposeして、endorserから十分な数のendorsementが得られたら、トランザクションとendorsementをordering serviceに送り、ordererがトランザクションをブロックに追加して（おそらく他のトランザクションとグループ化して）peerにbroadcastしたら、committerは署名されたendorsementがendorsement policyを満たすかどうかを検証します。
+Notify Client/Application	クライアント/アプリケーションへの通知
+There is one extra step here, which is optional.	ここでオプションのステップがもう1つあります。
+Applications can register to be notified when transactions succeed or fail, and when blocks are added to the ledger.	トランザクションが成功した時や失敗した時、およびブロックが台帳に追加された時に、アプリケーションが通知を受けるように設定できます。
+Applications will be notified by each peer to which they are connected.	アプリケーションは、接続先の各peerから通知されます。
+Components Participating in a Typical Transaction Flow	一般的なトランザクション フローに参加しているコンポーネント
+Before we wrap up, here is a quick summary of the main components involved in a typical transaction flow:	コースを締めくくる前に、一般的なトランザクション フローに含まれるおもなコンポーネントの概要について説明しましょう。
+● Client/Application	• クライアント/アプリケーション
+- Application using Hyperledger Fabric SDK to interact with the Hyperledger Fabric network	- Hyperledger Fabric SDKを使用してHyperledger Fabricネットワークとやりとりするアプリケーション
+- Initiates/proposes transactions	- トランザクションを初期化して、提案
+● Endorser	• endorser
+- Simulates and endorses transaction	- トランザクションをシミュレートしてendorseする
+- Must hold chaincode in a Docker container	- チェーンコードは Dockerコンテナに保持することが必要
+● Ordering Nodes (service) - Validates endorsements	• ordering nodes (service)
+- Groups transactions into a transaction block	- トランザクションをトランザクション ブロックにグループ化 - すべてのcommitterにブロックを配信
+● Committer	• committer
+- Maintains ledger and state	- 台帳とステートの維持
+- Validates and commits transactions.	- トランザクションの検証およびコミット
+Membership Services, MSPs, and Channels	メンバーシップ サービス、MSP、およびチャネル
+● Explain the concept of Public Key Infrastructure (PKI).	• 公開鍵基盤（PKI）の概念を説明する。
+● Discuss about signed certificates and chain of trust.	• 署名された証明書と信頼チェーンについて説明する。
+● Discuss about Membership Services and Membership Service Providers.	• メンバーシップ サービスとメンバーシップ サービスプロバイダーについて説明する。
+● Explain the concept of channels, how they are set up and how the architecture of channels enforces segregation of data and enhances privacy and confidentiality.	• チャネルの概念、チャネルの設定方法、チャネルのアーキテクチャがデータの分離を強化し、プライバシーと機密性を強化する方法を説明する。
+Public Key Infrastructure	公開鍵基盤
+As we have seen before, Hyperledger Fabric is a permissioned network, and the identities of participants are tightly controlled.	これまで見てきたように、Hyperledger Fabricはパーミッションド ネットワークであり、参加者のIDは厳密に管理されています。
+In existing enterprise systems, as digital commerce and other commercial interactions became prevalent, it became necessary to establish the identity of the parties, while also allowing secure communications.	既存の企業システムでは、デジタル商取引および他の商取引のやりとりが普及するにつれて、安全な通信も可能にしながら、当事者のIDを証明することが必要になりました。
+Public Key Infrastructure (PKI) refers to the infrastructure which supports public key cryptography, also known as asymmetric cryptography.	公開鍵基盤（PKI）は、公開鍵暗号（非対称暗号とも呼ばれる）をサポートする基盤を指します。
+Public key cryptography is a cryptographic system that uses pairs of keys.	公開鍵暗号は、鍵のペアを使用する暗号化システムです。
+The holder generates this pair of keys using a cryptographic function: the public keys are sent to everyone interested in interacting with the holder, while the private keys are kept secret by the owner.	所有者は暗号化機能を使用してこの鍵のペアを生成します。 公開鍵は所有者とのやり取りに関心のあるすべての人に送信され、秘密鍵は所有者によって秘密にされます。
+This accomplishes two functions:	これは以下の2つの機能を果たします。
+● Authentication, where the public key verifies that a holder of the paired private key sent the message, and	• 認証：公開鍵によって、ペアになっている秘密鍵の所有者がメッセージを送信したことを確認します。
+● Encryption, where only the paired private key holder can decrypt the message encrypted with the public key.	• 暗号化： ペアになっている秘密鍵の所有者だけが公開鍵で暗号化されたメッセージを復号化できます。
+Furthermore, the public key cannot help in finding the private key.	さらに、公開鍵から秘密鍵を作成することはできません。
+Hence in public key cryptography, security consists of keeping the private key secret.	したがって、公開鍵暗号では、セキュリティは秘密鍵を秘密にすることから成り立つのです。
+PKI infrastructure is responsible for securing electronic interactions in enterprises and across enterprises.	PKIインフラストラクチャは、企業内および企業間での電子的なやりとりをセキュアにする責任があります。
+PKI binds the public keys of entities to their identities, who possess a secret (a private key) that corresponds to their public key.	PKIは、組織の公開鍵を組織のIDに結びつけます。 このIDはその公開鍵に対応する秘密（秘密鍵）を持っています。
+These bindings are done through digital certificates signed by a Certificate Authority (CA), which can be verified by using the CA's public key.	この結びつけは、認証局（CA）によって署名されたデジタル証明書を通して行われます。 認証局 (CA) は、CAの公開鍵を使用して、このことは検証できます。
+Hyperledger Fabric PKI is governed by the X.509 family of standards.	Hyperledger Fabric PKIは、X.509ファミリの標準規格に準拠しています。
+The structure and semantics of the digital certificates and Certificate Revocation Lists (CRLs) in X.509 standards are governed by RFC 5280 .	X.509規格のデジタル証明書と証明書失効リスト（CRL）の構造と意味は、RFC 5280に準拠しています。
+This also allows the Hyperledger Fabric Identity Framework to interoperate with existing legacy systems, since almost all enterprises implement X.509-compatible systems.	ほとんどすべての企業がX.509互換システムを実装しているため、これによってHyperledger Fabric Identity Frameworkを既存のレガシー システムと相互運用することもできます。
+Digital certificates are detailed and rich structures following the X.509 standard; they have to be signed by a Certificate Authority to be authenticated.	デジタル証明書は、X.509標準に準拠した詳細でリッチな構造です。 認証には認証局による署名が必要です。
+They can describe identity attributes in detail, as well as provide trust through a certificate.	デジタル証明書は、アイデンティティ属性を詳細に記述することができ、証明書を通して信頼を提供することができます。
+The way in which the certificate data is altered or removed in X.509 is through the use of Certificate Revocation Lists, also to be signed through the chain of trust by certificate authorities.	X.509で証明書データを変更または削除するには、証明書失効リスト(Certificate Revocation List)の使用によって行われ、認証局による信頼チェーンを通して署名されることもあります。
+PKI: Chain of Trust	PKI：信頼チェーン
+The way PKI works in practice is through a root CA, which is often one of the well-known CAs (such as Symantec, Verisign, etc.) that are distributed with every browser.	PKI が実際に動作する方法は、ルートCA を介して行われます。 ルートCAは、各ブラウザに配布されている、よく知られたCA（Symantec、Verisignなど）の1つです。
+In the case of many Hyperledger Fabric channel configurations, this is often a properly configured Fabric CA.	多くのHyperledger Fabricチャネル設定の場合では、多くは適切に設定されたFabric CAです。
+This is known as the trust anchor; the trust anchor is self-certified and well-known.	これはトラスト アンカー (trust anchor) として知られています。
+The root CA can sign leaf digital certificates (meaning certificates for entities that are not CAs), and also certificates for what are known as intermediate CAs.	トラスト アンカーは自己認証され、よく知られています。 ルートCAは、リーフ デジタル証明書（CAではない組織の証明書を意味します）に署名することも、中間CAと呼ばれるものの証明書に署名することもできます。
+The difference between root CAs and intermediate CAs is the fact that the root CA self certifies its digital certificate and any intermediate CA certificate has to be signed by the root CA or an already established intermediate CA.	ルートCAと中間CAの違いは、ルートCAがデジタル証明書を自己認証しますが、どの中間CA証明書もルートCAまたはすでに確立されている中間CAによって署名されなければならない点です。
+Intermediate CAs can sign certificates for other intermediate CAs as well as leaf digital certificates.	中間CAは、リーフ デジタル証明書だけでなく、他の中間CAの証明書にも署名できます。
+The trust for any leaf digital certificate can be traced back to the root CA through a chain of unforgeable certificates, which is what is called the chain of trust.	リーフ デジタル証明書の信頼は、一連の偽造不可能な証明書を通してルートCAにたどり着くことができます。 これを信頼チェーンと呼びます。
+Hyperledger Fabric developers created Fabric CA to function as a root CA as well as intermediate CA to be able to test as well as run business networks.	Hyperledger Fabricの開発者は、ビジネス ネットワークのテストと実行ができるように、ルートCAおよび中間CAとして機能するようにFabric CAを作成しました。
+Hyperledger Fabric Membership Services employ a similar chain of trust.	Hyperledger Fabricメンバーシップ サービスは、同様の信頼チェーンを採用しています。
+The Root CA of the Hyperledger Fabric channel ecosystem can create intermediate CAs.	Hyperledger Fabricチャネル エコシステムのルートCAは、中間CAを作成できます。
+The root CA can bridge into the legacy systems of the enterprise through a series of CAs, back to the public, well-accepted external root CA as well.	ルートCAは、一連のCAを介して企業のレガシー システムにブリッジすることができ、パブリックで広く受け入れられている外部ルートCAにも戻ります。
+This is how the Hyperledger Fabric Identity system functions in the context of large enterprises, and even cross-enterprise.	このようにして、Hyperledger Fabric Identityシステムは大企業、さらには企業間の関係で機能します。
+The larger world of Identity Management systems in general is explained next.	次に一般的なアイデンティティ管理システムのより大きな世界について説明します。
+PKI: Authorization	PKI：認可
+Authorization is the ability to restrict an entity's access to certain read or write transactions.	認可 (Authorization) は、特定の読み取りまたは書き込みトランザクションへのエンティティに対するアクセスを制限する機能です。
+Deploying or invoking chaincode is also implemented using the information available in the digital certificates.	チェーンコードのデプロイまたは呼び出しも、デジタル証明書で利用可能な情報を使用して実装されています。
+Hyperledger Fabric uses Role Based Access Control (RBAC).	Hyperledger Fabricはロールベースアクセス制御（RBAC）を使用します。
+We will explain in the following sections on how this is implemented in the context of channels and MSPs.	次のセクションでは、これがチャネルとMSPのコンテキストでどのように実装されるかについて説明します。
+To summarize PKI, we have the following concepts:	PKIをまとめると、次のような概念になります。
+● Public and private key pairs	• 公開鍵と秘密鍵のペア
+● Digital certificates and revocation lists; the Hyperledger Fabric Identity system follows the X.509 standard	• デジタル証明書と失効リスト：Hyperledger Fabric IdentityシステムはX.509標準に準拠しています。
+● Certificate authorities and the chain of trust	• 認証局と信頼チェーン
+● Verification of the certificates and authorization.	• 証明書の検証と認可
+Membership Services	メンバーシップ サービス
+Membership Services authenticates, authorizes, and manages identities on a Hyperledger Fabric permissioned blockchain network.	メンバーシップ サービスは、Hyperledger Fabricパーミッションド ブロックチェーン ネットワーク上のIDを認証 (Authentication)、認可 (Authorization)、および管理します。
+The membership services code that runs in peers and orderers both authenticates and authorizes blockchain operations.	peerとordererで実行されるメンバーシップ サービス コードは、ブロックチェーン操作の認証および認可を行います。
+As mentioned before, Hyperledger Fabric creates a transactional network where all participants have known identities; these include organizations, network components, and end users or client applications.	前述のように、Hyperledger Fabricは、すべての参加者がID情報を持つトランザクションネットワークを作成します。 これらには、組織、ネットワーク コンポーネント、およびエンドユーザーまたはクライアント アプリケーションが含まれます。
+Public Key Infrastructure is used to generate cryptographic certificates which are tied to these participants.	公開鍵基盤は、これらの参加者に関係付けられている暗号証明書の生成に使用されます。
+As a result, user access control can be implemented on the network level, as well as on the channel level.	その結果、ユーザー アクセス制御は、ネットワーク レベルでもチャネル レベルでも実装できます。
+Channel in Hyperledger Fabric is a segregated sub-network consisting of two or more participant organizational units created for the purpose of conducting private and confidential transactions.The concept of channels coupled with this access control helps address confidentiality and hence privacy of the data and chaincode deployment, execution and update.	Hyperledger Fabricのチャネルは、プライベート トランザクションと機密トランザクションを実行する目的で作成された、2つ以上の参加者の組織単位で構成される独立したサブネットワークです。 このアクセス制御と組み合わされたチャネルの概念は、機密保持、ひいてはデータのプライバシーとチェーンコード デプロイ、実行および更新を説明することに役立ちます。
+Before we proceed further, we will provide a brief introduction to the concepts of Identities, Authentication and Authorization.	次に進む前に、アイデンティティ、認証、および認可の概念について簡単に紹介しましょう。
+Membership Services: Identity	メンバーシップ サービス：アイデンティティ
+In permissioned blockchain systems, Identity is essential, rich, decentralized, and reliable.	パーミッションド ブロックチェーン システムでは、アイデンティティは不可欠で、リッチで、非中央集権型であり、信頼性があります。
+Let's look at each one of these concepts below.	それぞれの概念を見てみましょう。
+Membership Services: Authentication and Authorization	メンバーシップ サービス：認証 (Authentication) と認可 (Authorization)
+Authentication is the process of verifying Identity.	認証 (Authentication)は、身元を確認するプロセスです。
+Hyperledger Fabric uses a PKI-based authentication scheme.	Hyperledger Fabricは、PKIベースの認証方式を使用しています。
+The proof of possession of a secret (a private key) corresponding to the public key in the X.509 certificate authenticates the user's (or device's) Identity.	X.509証明書の公開鍵に対応する秘密（秘密鍵）を所持していることの証明は、ユーザー（またはデバイス）のIDを認証します。
+Authorization is the process of determining access rights and privileges to a resource or permission to perform specific actions.	認可 (Authorization)は、リソースに対するアクセス権と特権、または特定のアクションを実行するための許可を決定するプロセスです。
+Hyperledger Fabric uses the Role Based Authorization Control (RBAC) scheme, where each Identity is assigned a role.	Hyperledger Fabricは、各IDに役割が割り当てられているロールベース認可制御（RBAC）方式を使用します。
+The authorization policies are defined per resource or action, and relate to roles rather than specific identities.	認可ポリシーはリソースまたはアクションごとに定義され、特定のIDではなくロールに紐付いています。
+This provides better flexibility and agility, as roles can be reassigned if, for example, a specific employee leaves the enterprise or is on vacation.	これによって柔軟性と敏捷性が向上します。 たとえば、特定の従業員が退職したり、休暇を取っている場合にロールを再割り当てできたりするためです。
+Fabric CA	Fabric CA
+Hyperledger Fabric CA is an out-of-the-box implementation of a Certificate Authority (CA) for use with Hyperledger Fabric.	Hyperledger Fabric CAは、Hyperledger Fabricで使用するための認証局（CA）の標準実装です。
+Fabric CA either registers Identities or connects to an existing LDAP to use as the user registry.	Fabric CAは、IDを登録するか、既存のLDAPに接続してユーザー レジストリとして使用します。
+Fabric CA issues, renews and revokes Enrollment Certificates and Root Certificates to network member organizations, their system components and their users, including administrators.	Fabric CAは、ネットワーク メンバー組織、そのシステム コンポーネント、および管理者を含むそのユーザーに対して、登録証明書とルート証明書の発行、更新、および取り消しを行います。
+All these certificates are in the X.509 format.	これらの証明書はすべてX.509形式です。
+Also, support for PKI means that Fabric-CA supports Certificate Revocation Lists (CRL).	また、PKI対応なので、Fabric-CAが証明書失効リスト（CRL）に対応しています。
+Fabric CA is using the client/server architecture; here, the server can be implemented as a cluster to support High Availability.	Fabric CAはクライアント/サーバー アーキテクチャを使用しています。 ここでは、サーバーを高可用性をサポートするクラスターとして実装できます。
+As with any CA, the Fabric-CA can generate self-signed X.509 certificates.	他のCAと同様に、Fabric-CAは自己署名X.509証明書を生成できます。
+Multiple Fabric CAs can be started.	複数のFabric CAが起動できます。
+Normally, this would follow the PKI chain of trust philosophy, where one of them is a root CA, and the rest are intermediate CAs authenticated by the root CA.	通常、これはPKIの信頼チェーン哲学に従っており、そのうちの1つはルートCAで、残りはルートCAによって認証された中間CAです。
+Fabric CA is only provided as a default reference implementation of a CA.	Fabric CAは、CAのデフォルトの参照実装としてのみ提供されています。
+It can be replaced with another CA to generate appropriate certificates and support Revocation Lists.	別のCAと置き換えて、適切な証明書を生成して失効リストをサポートすることができます。
+Membership Service Provider	メンバーシップ サービス プロバイダー (Membership Service Provider)
+The Membership Service Provider (MSP) in Hyperledger Fabric is responsible for Identity Management functions in the context of the Fabric blockchain network.	Hyperledger Fabricのメンバーシップ サービス プロバイダー（MSP）は、FabricブロックチェーンネットワークのコンテキストでID管理機能を担当します。
+An implementation of MSP identifies which root CAs and intermediate CAs are trusted to define the members of a trust domain (e.g. an organization), either by listing the identities of their members, or by identifying which CAs are authorized to issue valid identities for their members, or a combination of both.	MSPは信頼ドメインのメンバー(組織など)を定義するために、どのルートCAと中間CAが信頼されているかを識別します。 具体的には、メンバーのIDをリスト化する、どのCAが有効なIDをメンバーに発行する権限を付与されているかを識別する、あるいはその両方を組み合わせることによって行われています。
+An MSP also enforces role-based authorization control within the scope of the organization which the MSP represents (e.g. administrators, or members of a sub-organization group), and sets the basis for controlling access privileges in the context of the network and a channel (e.g. channel admins, readers, writers).	MSP は MSP が表す組織 (管理者またはサブ組織グループのメンバーなど) の範囲内でロールベースの許可管理を実施し、ネットワークおよびチャネル（channel admins、readers、writersなど）のコンテキストでアクセス権限を管理するための基盤を設定します。
+In this context, the organization is a managed group of members.	このコンテキストでは、組織はメンバーの管理されたグループです。
+An organization is divided into multiple organizational units (OUs), each with a certain set of responsibilities.	組織は複数の組織単位（OU）に分割され、それぞれに一定の責任があります。
+When a CA issues X.509 certificates, the OU field in the certificate specifies the line of business to which the identity belongs.	CAがX.509証明書を発行すると、証明書のOUフィールドには、IDが属する事業部門を指定します。
+The configuration of an MSP is broadcasted to all the channels where members of the corresponding organization participate; this is called the channel MSP.	MSPの設定は、対応する組織のメンバーが参加するすべてのチャネルにブロードキャストされます。 これをチャネルMSPと呼びます。
+In addition to the channel MSP, peers, orderers, and clients also maintain a local MSP instance to authenticate member messages outside the context of a channel, and to define the permissions over a particular component (who has the ability to install chaincode, for example).	チャネルMSPに加えて、peer、orderer、およびクライアントも、ローカルMSPインスタンスを維持し、チャネルのコンテキスト外のメンバーメッセージを認証し、特定のコンポーネント（チェーンコードをインストールする機能を持つユーザーなど）に対するアクセス許可を定義します。
+The MSP also has to handle Certification Revocation Lists (CRLs), which we discussed in the PKI section.	MSPは、PKIセクションで説明した証明書失効リスト（CRL）も処理する必要があります。 すべてのノードとユーザーはローカルMSPを持つ必要があります。
+Every node and user must have a local MSP which defines the permissions of that node and allows the user to authenticate its transactions or as an administrator.	ローカルMSPはノードのパーミッション権限を定義したり、ユーザーやadminのトランザクションを認証します。
+Due to the hierarchical nature of the subgroups during channel setup, this configuration requirement can be fulfilled quite easily.	チャネルのコンフィギュレーションの記述はサブグループ単位で階層化されているため、この設定要件は非常に簡単に満たすことができます。
+This results in local MSPs for every type of peer.	これにより、あらゆるタイプのpeerに対してローカルMSPが生成されます。
+MSP Structure	​ MSPの構造
+So far, we have learned about MSPs of different levels of the constitution of a business network.	これまで、さまざまなレベルのビジネス ネットワーク構成のMSPについて学んできました。
+The scopes of these MSPs are different, but the most important function of an MSP at any level is the identification and interaction with root or intermediate CAs used to establish a chain of trust.	これらのMSPの範囲は異なりますが、どのレベルにおいてもMSPの最も重要な機能は、信頼チェーンを確立するために使用されるルートCAまたは中間CAとの識別とやりとりです。
+Local MSP configuration is stored in a local folder with a specific structure.	ローカルMSP設定は、特定の構造を持つローカル フォルダに格納されています。
+Usually, the structure is in the form of a file folder with subfolders for each type of element.	通常、構造は要素のタイプごとにサブフォルダを持つファイル フォルダの形式です。
+It is helpful to think of a channel MSP configuration this way, as well.	チャネル MSP の設定もこのように考えると便利です。
+Local MSPs are defined for every type of local node, like peer or orderer.	ローカルMSPは、peerやordererなど、あらゆるタイプのローカルノードに対して定義されます。
+Their configurations only apply locally.	それらの設定はローカルにのみ適用されます。
+In addition to the elements we just talked about, local MSPs have the following attributes:	先ほど説明した要素に加えて、ローカルMSPには以下の属性があります。 • ノードID
+● Node Identity	ノードのID。
+The identity of the node; i.e. cryptographic material that, in combination with the private key (held separately), would allow the node to authenticate itself in the messages that it sends to other participants of its channels and network.	すなわち、（別々に保持されている）秘密鍵と組み合わせ、ノードが自身のチャネルおよびネットワークの他の参加者に送信するメッセージ内で、自分自身を認証することを可能にする暗号材料のこと。
+This is mandatory for a local MSP.	これはローカルMSPには必須です。
+● KeyStore for Private Key	• 秘密鍵のキーストア
+This contains the node’s private key.	これにはノードの秘密鍵が含まれています。
+This key cryptographically matches the node’s public key present in the Node Identity X.509 certificate.	この鍵は、ノードID X.509証明書に存在するノードの公開鍵と暗号的に一致します。
+This is used, for example, to sign a transaction proposal response, as part of the endorsement phase.	たとえば、これは、endorsementフェーズの一環として、トランザクションproposalのレスポンスに署名するために使用されます。
+The access to this key is restricted to identities of users who have administrative access.	このキーへのアクセスは、管理者権限を持つユーザーのIDに制限されています。
+This item is mandatory for local MSPs, and must contain exactly one private key.	この項目はローカルMSPには必須であり、秘密鍵を1つだけ必要とします。
+Channel MSPs do not include this element, as they aim to offer identity validation functionality, and not signing ability.	チャネルMSPは、署名機能ではなく、ID検証機能の提供を目的としているため、この要素は含まれていません。
+Channels	チャネル
+A Hyperledger Fabric channel is a segregated way of communication between two or more specific network members, for the purpose of conducting transactions.	Hyperledger Fabricのチャネルは、2つ以上の特定の組織だけが関わるスマートコントラクトやトランザクションを他の組織から分離する機能です。
+The channel structure is the only way in which Hyperledger Fabric business networks can be set up.	Hyperledger Fabricのネットワークを構築する時、必ずチャネルが必要になります。
+A channel is defined by the following components:	チャネルは次のコンポーネントによって定義されます。
+● Members (organization units)	• メンバー（組織単位）
+● The shared ledger	• 共有台帳
+● Chaincode	• チェーンコード
+● The ordering service.	• ordering service
+Each transaction on the network is executed on a channel, where each party must be authenticated and authorized to transact on that channel.	ネットワーク上の各トランザクションはチャネル上で実行されます。 そのチャネルでトランザクションを実行するには、各組織は認証・認可される必要があります。
+Each peer that joins a channel has its own identity given by a Membership Services Provider (MSP), which authenticates each peer to its channel peers and services.	チャネルに参加する各peerは、メンバーシップ サービス プロバイダー（MSP）によって付与された自身のIDのあるチャネルに参加します。 MSPは各peerをそのチャネルのpeerおよびサービスに対して認証します。
+Channels have the advantage of providing confidentially.	チャネルには、プライバシーを保てるという利点があります。
+Each and every concept described in all the preceding sections and chapters is valid only in the context of a Fabric channel.	前述のすべてのセクションおよび章で説明されているありとあらゆる概念は、Fabricチャネルのコンテキストでのみ有効です。
+By default, a channel can include all participants in a network.	デフォルトでは、チャネルにはネットワーク内のすべての参加者を含めることができます。
+If private communications are needed, just the organizational units that need to participate in such private communication can create a separate channel where they are the only authorized members.	プライベート コミュニケーションが必要な場合は、そのプライベート コミュニケーションに参加する必要がある組織だけで新たなチャネルを作成することができます。
+No ledger data can pass from one channel to another.	台帳データは、あるチャネルから別のチャネルに渡すことはできません。
+This separation of ledgers, by channel, is defined and implemented by configuration chaincode, the identity membership service and the gossip protocol.	この台帳の分離は、チャネルごとに定義され、システム チェーンコード、IDメンバーシップ サービス、およびゴシップ プロトコルによって実装されます。
+The dissemination of data, which includes information on transactions, ledger state and channel membership, is restricted to peers with verifiable membership on the channel.	トランザクション、台帳の状態、およびチャネルのメンバーシップに関する情報を含むデータの配布は、チャネル上で検証可能なメンバーシップを持つpeerに制限されています。
+This isolation of peers and ledger data by channel, allows network members that require private and confidential transactions to coexist with business competitors on the same blockchain network.	このようにpeerと台帳データをチャネルごとに分離することで、プライベートで機密のトランザクションを必要とするネットワーク メンバーが、同じブロックチェーン ネットワーク上でビジネスの競合相手と共存できます。
+Channel Setup	チャネル設定
+To create a new channel, the client SDK calls the configuration system chaincode with parameters like policies, the MSP IDs and members (organizations).	新しいチャネルを作成するために、クライアントSDKは、ポリシー、MSP ID、およびメンバー（組織）などのパラメーターを使用してコンフィギュレーション システム チェーンコードを呼び出します。
+This creates a genesis block for the channel ledger, which stores configuration information about the channel policies and members.	これにより、チャネル台帳用のgenesis blockが作成され、チャネル台帳にはチャネルポリシーおよびメンバーに関する設定情報が格納されます。
+The genesis block is the first block in the channel's ledger. It contains only configuration information.	genesis blockは、チャネルの台帳の最初のブロックで、コンフィギュレーション情報のみが含まれています。
+When a new member is added to an existing channel, the member gets access to the appropriate information in the genesis block.	新しいメンバーが既存のチャネルに追加されると、そのメンバーはgenesis block内の適切な情報にアクセスできます。
+The MSP ID has to be unique within channels.	MSP IDはチャネル内でユニークである必要があります。
+The channel configuration is done using a collection of configuration transactions.	チャネル設定はコンフィギュレーション トランザクションの集まりを使用して行われます。
+Each collection consists of one or more versioned configuration transactions (configtx) in a grouped hierarchy.	チャネルの設定情報は階層構造になっていて、設定項目はグループ化され、また、バージョン管理されています。
+Configuration modification policies control the permissioning of changes to that configuration.	コンフィギュレーション変更ポリシーは、その構成に対する変更の許可を制御します。
+The hierarchical structure permits the inheritance of policies for configurations deeper in the hierarchy from higher levels.	階層構造により、上位レベルから階層内のより深い構成へのポリシーの継承が可能になります。
+As we mentioned above, the configuration contains information about the Membership Services Provider attached to the channel.	前述したように、この設定には、チャネルに接続されているメンバーシップ サービス プロバイダーに関する情報が含まれています。
+Operating a Channel	チャネルを操作する
+Once a channel is set up, participants in the channel can deploy and invoke chaincode, engaging in all activities that we have seen before - to propose, endorse, order and validate transactions, of course limited by the rights granted them by their MSPs inherited from the channel configuration and interaction with the CA.	チャネルが作成されると、チャネルの参加者はチェーンコードをデプロイして呼び出すことができ、これまで見てきたすべてのアクティビティ~トランザクションのproposal, endorsement、ordering、validationに関与します（もちろん、チャネル コンフィギュレーションとCAとのやりとりから継承されるMSPによって付与される権利に制限されます）。
+Channel configuration can also be modified dynamically to add more participants and their own MSPs.	チャネル構成を動的に変更して、参加者と自分自身のMSPを追加することもできます。
+This can only be done if one has the proper administration rights by being in a role that is permitted to make these changes.	これは、これらの変更を行うことが許可されているロールになる適切な管理権限が持っている場合にのみ実行できます。
+A very important result of the channel setup is increased privacy.	チャネル設定の非常に重要な結果はプライバシーが向上することです。
+Unlike public-permissionless blockchains (as well as some of the other permissioned chains), Hyperledger Fabric segregates the activity of a channel from participants who are not members of the channel; these outsiders cannot even see the frequency, nor the size of the messages that pass between the participants of the channel.	パブリックなパーミッションレス ブロックチェーン（および他のパーミッションド チェーンの一部）とは異なり、Hyperledger Fabricはチャネルのアクティビティをそのチャネルのメンバーではない参加者から分離します。 これらの部外者は、チャネルの参加者間を通過するメッセージの頻度もサイズも見ることができません。
+This increases the privacy of the business transactions, also by shielding the chaincode from prying eyes.	これにより、チェーンコードを覗き見から守ることによって、ビジネス取引のプライバシーを高めます。
+Hyperledger Composer	Hyperledger Composer
+Hyperledger Composer is an open development tool set and framework to make developing blockchain applications easier.	Hyperledger Composerは、ブロックチェーン アプリケーションの開発を容易にするためのオープン開発ツールセットおよびフレームワークです。
+The goal is to accelerate time to value, and make it easier to integrate blockchain applications with the existing business systems.	目標は、価値実現までの時間を短縮し、ブロックチェーン アプリケーションを既存のビジネス システムと簡単に統合できるようにすることです。
+You can use Composer to rapidly develop use cases and deploy a blockchain solution in a short period.	Composerを使用すると、短期間でユースケースを迅速に開発し、ブロックチェーン ソリューションをデプロイできます。
+Composer allows you to model your business network and integrate existing systems and data with your blockchain applications.	Composerを使用すると、ビジネス ネットワークをモデル化し、既存のシステムとデータをブロックチェーン アプリケーションと統合できます。
+Hyperledger Composer supports the current version of the Hyperledger Fabric Framework.	Hyperledger Composerは現在のバージョンのHyperledger Fabric Frameworkをサポートしています（注：Composerは新機能開発がなくなり、最小限の保守だけがされています。Fabricのサポートは v1.2までです）。
+You can use Hyperledger Composer to quickly model your current business network, containing your existing assets and the transactions related to them.	Hyperledger Composerを使用して、既存の資産とそれに関連するトランザクションを含む現在のビジネス ネットワークをすばやくモデル化できます。
+As part of your business network model, you define the transactions which can interact with assets.	ビジネス ネットワーク モデルの一部として、アセットとやりとりできるトランザクションを定義します。
+Business networks also include the participants who interact with them, each of which can be associated with a unique identity, across multiple business networks.	ビジネス ネットワークには、ネットワークとやりとりする参加者も含まれます。
+Creating Applications Using Hyperledger Composer	Hyperledger Composerを使用したアプリケーションの作成
+Steps to creating an application using Hyperledger Composer include:	Hyperledger Composerを使用してアプリケーションを作成する手順は次のとおりです。
+● Modeling assets, participants and transactions to create a .cto file.	• .ctoファイルを作成するためのアセット、参加者、およびトランザクションのモデル化
+● Writing transaction functions in Javascript as a .js file.	• Javascriptでトランザクション関数を.jsファイルとして記述
+● Creating access control rules as an .acl file.	• アクセス制御規則を.aclファイルとして作成
+● Creating a query definition as a .qry file.	• クエリ定義を.qryファイルとして作成
+Together, these four types of files make up a Business Definition Network (BDN).	これら4種類のファイルを組み合わせて、ビジネス定義ネットワーク（BDN）を構成します。
+With tools provided by Hyperledger Composer, you can then package up the BDN to create a Business Network Archive (BNA), which afterwards can be deployed, for example, by using the command line with business network cards with admin privileges.	Hyperledger Composerが提供するツールを使用すると、BDNをパッケージ化してビジネス ネットワーク アーカイブ（BNA）を作成することができます。 これは、後で管理者権限を持つビジネス ネットワーク カードでコマンドラインを使用することによってデプロイできます。
+Business network cards are a combination of an identity, a connection profile, and metadata, the metadata optionally containing the name of the business network to connect to.	ビジネス ネットワーク カードは、ID、connection profile、およびメタデータの組み合わせで、メタデータにはオプションで接続先のビジネス ネットワークの名前が含まれています。
+Business network cards simplify the process of connecting to a business network, and extend the concept of an identity outside the business network to a 'wallet' of identities, each associated with a specific business network and connection profile.	ビジネス ネットワーク カードは、ビジネス ネットワークへの接続プロセスをシンプルにし、ビジネス ネットワークの外のIDの概念を、それぞれが特定のビジネス ネットワークと接続プロファイルに関連付けられたIDの「ウォレット」に拡張します。
+Connection profiles are used across Hyperledger Composer to specify how to connect to an execution runtime.	connection profileは、Hyperledger Composer全体で実行ランタイムへの接続方法を指定するために使用されます。
+There are different configuration options for each type of execution runtime.	実行ランタイムの種類ごとに異なる構成オプションがあります。
+For example, the connection profile for a Hyperledger Fabric v1.1 runtime will contain the TCP/IP addresses and ports for the Fabric peers, as well as cryptographic certificates, etc.	たとえば、Hyperledger Fabric v1.1ランタイムのconnection profileには、Fabric peerのTCP / IPアドレスとポート、および暗号証明書などが含まれます。
+Hyperledger Composer Components	Hyperledger Composerのコンポーネント
+Hyperledger Composer is comprised of the following high-level components:	Hyperledger Composerは、次の上位レベルのコンポーネントで構成されています。
+● Execution Runtimes	• 実行ランタイム
+Hyperledger Composer has been designed to support different pluggable runtimes, and currently has three runtime implementations.	Hyperledger Composerは、さまざまなプラガブル ランタイムをサポートするようにデザインされており、現在3つのランタイム実装があります。
+With Hyperledger Fabric v1.1, state is stored on the distributed ledger.	Hyperledger Fabric v1.1では、ステートは分散台帳に保存されます。
+The other two implementations are testing and web-based playgrounds for getting familiar with Composer, and don't actually use blockchain.	他の2つの実装はComposerに慣れるためのテストとWebベースのプレイグラウンドで、実際にはブロックチェーンを使用しません。
+● JavaScript SDK	• JavaScript SDK
+The Hyperledger Composer JavaScript SDK is a set of Node.js APIs that enables developers to create applications to manage and interact with deployed business networks.	Hyperledger Composer JavaScript SDKは、開発者がデプロイされたビジネス ネットワークを管理しやりとりするためのアプリケーションを作成できるようにするNode.js APIのセットです。
+● Command Line Interface	• コマンドライン インターフェイス
+The composer command line tool enables developers and administrators to deploy and manage business network definitions.	comoserコマンドライン ツールを使用することで、開発者および管理者はビジネス ネットワーク定義をデプロイおよび管理できます。
+● REST Server	• RESTサーバー
+The Hyperledger Composer REST Server automatically generates an Open API (Swagger) REST API for a business network.	Hyperledger Composer RESTサーバーは、ビジネス ネットワーク用のOpen API（Swagger）REST APIを自動的に生成します。
+The REST Server converts the Composer model for a business network into an Open API definition, and at runtime implements create, read, update and delete support for assets and participants and allows transactions to be submitted or queried.	RESTサーバーは、ビジネス ネットワーク用のComposerモデルをOpen API定義に変換し、実行時に資産および参加者の作成、読み取り、更新、削除のサポートを実装し、トランザクションの送信または照会を可能にします。
+● LoopBack Connector	• ループバック コネクター
+It is mostly used in the component above.	おもに上記のコンポーネントで使用されています。
+● Playground Web User Interface	• プレイグラウンド ウェブ ユーザー インターフェイス
+Web user interface to define and test business networks.	ビジネス ネットワークを定義およびテストするためのWebユーザー インターフェイス
+● Yeoman Code Generator	• Yeomanコード ジェネレーター
+It is used to generate skeleton projects.	スケルトン プロジェクトを生成するために使用されます。
+● VSCode Editor Plugin	• VSCodeエディター プラグイン
+The VSCode plugin highlights syntax, validates model and acl files and provides snippet support, making it easy to develop the basic files that make up a business definition network.	VSCodeプラグインは構文を強調表示し、モデル ファイルとaclファイルを検証し、スニペット サポートを提供するので、ビジネス定義ネットワークを構成する基本ファイルを簡単に開発できます。

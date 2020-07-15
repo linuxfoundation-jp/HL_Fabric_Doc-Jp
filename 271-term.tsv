@@ -1,0 +1,458 @@
+43	ledger	台帳
+34	transactions	トランザクション
+24	World State	ワールドステート
+23	chaincode	チェーンコード	コード	チェーン
+20	transaction	トランザクション	トランザクションごと
+17	example	例	許可	アクセス許可
+16	channel	チャネル	チャネルごと
+15	block	ブロック
+14	participants	参加者
+14	distributed ledger	分散台帳
+14	as	休暇	アンカー	名前
+14	Transaction Log	トランザクションログ
+12	network	ネットワーク	ネットワーク構成	ネットワーク用
+12	blockchain	ブロックチェーン	チェーン
+11	server	サーバー
+11	nodes	ノード
+10	node	ノード
+10	key	鍵	キー
+9	root CA	ルートCA
+9	proposed transaction	トランザクション
+9	MSP	ローカルMSP
+8	chapter	章
+8	changes	変更
+7	using	使用
+7	part	部分
+7	data	データ
+7	context	コンテキスト	企業
+6	way	方法
+6	system	システム
+6	state	ステート	状態
+6	smart contract	スマートコントラクト
+6	set	セット	責任	一連	本人確認手続き
+6	one	１つ
+6	members	メンバー
+6	blocks	ブロック
+6	Transactions	トランザクション
+6	Step	ステップ
+6	Identity	アイデンティティ	ID管理
+5	value	値
+5	running	実行
+5	parties	当事者
+5	organization	組織
+5	key/value pairs	キー
+5	distributed systems	分散型システム	分散システム
+5	blockchain network	ブロックチェーンネットワーク
+5	Ledger	台帳
+5	Certificate Authority	認証局
+4	user	ユーザー
+4	use	使用
+4	role	役割	ロール
+4	request	リクエスト
+4	public key	公開鍵
+4	private key	秘密鍵
+4	other nodes	ノード
+4	order	順序
+4	name	名前
+4	logic	ロジック
+4	ledger state	ステート
+4	having	合意形成
+4	enterprises	企業
+4	distributed network	分散型ネットワーク
+4	distributed ledger technologies	分散台帳技術
+4	clients	クライアント
+4	client	クライアント	クライアント層
+4	chain of trust	信頼チェーン
+4	ability	機能	署名機能
+4	Lab	演習
+4	Consensus	コンセンサス
+4	Chaincode	チェーンコード
+3	world	世界
+3	upgrade	アップグレード
+3	updating	更新
+3	tools	ツール
+3	state transitions	ステート遷移
+3	smart contracts	スマートコントラクト
+3	single point of trust	単一信頼点
+3	simulating	シミュレーション
+3	sets	セット
+3	service	サービス
+3	roles	役割
+3	requests	リクエスト
+3	record	記録
+3	read	読み取り
+3	point	時点
+3	message	メッセージ
+3	local MSPs	ローカルMSP
+3	intermediate CAs	中間CA
+3	holder	所有者
+3	hash	ハッシュ
+3	first	最初
+3	distributed ledgers	分散台帳
+3	distributed	分散	分散型	配布	分散型システム
+3	difference	違い
+3	decentralized	非中央集権型	非中央中堅型システム
+3	database	データベース
+3	correctness	正確
+3	configuration	設定	コンフィギュレーション
+3	concept	概念
+3	components	コンポーネント	要素	重要	構成要素
+3	component	コンポーネント
+3	combination	組み合わせ
+3	code	コード
+3	certificates	証明書	証明
+3	certificate	証明書	証明
+3	centralized server	中央集権型サーバー	集中管理型サーバー
+3	business logic	ビジネスロジック
+3	blindly	信用
+3	applications	アプリケーション
+3	Public Key Infrastructure	公開鍵基盤
+3	Distributed Ledger	分散台帳
+3	Channels	チャネル
+3	Authorization	認可
+2	website	Webサイト
+2	version	バージョン
+2	values	値	キー
+2	usually	通常
+2	users	ユーザー
+2	ultimately	最終的
+2	typically	通常
+2	trust anchor	トラスト
+2	third party	第三者
+2	support	サポート
+2	stored procedure	ストアド
+2	sending	送信	メッセージ送信
+2	rights	権利	権限
+2	rest	残り
+2	requirements	要件
+2	redundancy	冗長性
+2	query transaction	queryトランザクション
+2	public key cryptography	公開鍵暗号
+2	protocol	プロトコル
+2	properly deployed	正しくデプロイ
+2	performance	パフォーマンス
+2	parameters	パラメーター
+2	organizations	組織
+2	ordered	確定
+2	need	必要
+2	model	モデル
+2	metadata	メタデータ
+2	messages	メッセージ
+2	member	メンバー
+2	local MSP	ローカルMSP
+2	list	リスト
+2	ledgers	台帳	元帳
+2	item	項目
+2	issues	問題
+2	issue	発行
+2	information	情報
+2	enterprise	企業
+2	distributed system	分散システム
+2	distributed ledger technology	分散台帳技術
+2	digital certificates	デジタル証明書
+2	diagram	図
+2	detail	詳しく
+2	decentralized system	非中央集権型システム
+2	decentralized network	非中央集権型ネットワーク
+2	cryptographic certificates	暗号証明書
+2	creating	作成
+2	copy	コピー
+2	consistency	一貫性
+2	consensus	コンセンサス
+2	connection profile	接続プロファイル
+2	configurations	設定
+2	client/application	クライアント
+2	channels	チャネル
+2	channel setup	チャネル設定
+2	channel MSP	チャネルMSP
+2	change	変更
+2	call	チェーン
+2	browser	ブラウザ
+2	assets	資産	アセット
+2	architecture diagram	アーキテクチャ図
+2	approved	承認
+2	adding	追加	更新
+2	activity	アクティビティ
+2	access	アクセス	権限	管理者権限
+2	Together	一緒
+2	Smart Contracts	スマートコントラクト
+2	REST Server	RESTサーバー
+2	Once	記述	作成
+2	Now	前ページ
+2	Note	注記
+2	Internet	インターネット
+2	Examine	タイプ	コンセンサス
+2	Docker container	Dockerコンテナ
+2	Decentralized	非中央集権	非中央集権型	非中央集権型システム
+2	Channel	チャネル
+2	Centralized systems	中央集権型システム
+2	Authentication	認証
+2	Applications	アプリケーション
+1	written	別々
+1	write	書き込み	読み書き
+1	world state	ワールドステート
+1	whole Transaction Log	トランザクションログ
+1	validating new blocks	新しいブロック
+1	user IDs	ユーザーID
+1	use cases	ユースケース	使用
+1	upgrades	アップグレード
+1	upgraded system	アップグレード済みシステム
+1	update	更新
+1	two parties	二者
+1	trust	信頼
+1	title registration body	所有権登録機関
+1	tightly controlled	厳密
+1	throughput	スループット
+1	there	懸念	顧客	相互	問題	相互接続
+1	theory	理論
+1	technology	技術	テクノロジー
+1	systems designer	システム設計者
+1	such ordered transactions	トランザクション
+1	submitted	送信
+1	subgroups	コンフィギュレーション
+1	subfolders	サブフォルダ
+1	sub-networks	サブネットワーク
+1	structure	構造
+1	step-by-step	ステップ
+1	step	ステップ
+1	states	承認	ステート
+1	speed	速度
+1	specification	仕様
+1	somebody	誰
+1	single server	単一サーバー
+1	single node	単一ノード
+1	simply	事前
+1	shared state	共有状態
+1	setup	設定
+1	set value	値
+1	semi-central hubs	準中央ハブ
+1	scope	範囲
+1	scheme	方式
+1	retroactively	遡及的
+1	reference	参照
+1	records	グループ化
+1	query definition	クエリ定義
+1	queries	代わり
+1	public keys	公開鍵
+1	public	公開
+1	proposed	トランザクション
+1	project	プロジェクト
+1	program	プログラム
+1	process	プロセス
+1	procedure	ストアド
+1	private keys	秘密鍵
+1	privacy	プライバシー
+1	precisely	正確
+1	policy	ポリシー
+1	policies	ポリシー
+1	picture	写真
+1	peer or orderer	peerやorderer
+1	peer nodes	peerノード
+1	payments protocol	決済プロトコル
+1	pattern	パターン
+1	party	組織
+1	outbound guarantees	インバウンド保証
+1	out-of-the-box implementation	標準実装
+1	other relevant information	関連情報
+1	organizational units	組織単位
+1	organization units	組織単位
+1	orderer channel	ordererチャネル
+1	opportunity	クエリ
+1	operations	操作
+1	operation	操作	制御
+1	new transaction	新しいトランザクション
+1	new member	新しいメンバー
+1	new key	新しいキー
+1	new concept	新しい概念
+1	new channel	新しいチャネル
+1	new block	新しいブロック
+1	networks	ネットワーク
+1	network participants	ネットワーク参加者
+1	network information	ネットワーク情報
+1	multiple business networks	ネットワーク
+1	more nodes	ノード
+1	military setup	軍事施設
+1	memorandum	ネットワーク
+1	membership operation architecture	メンバーシップ操作アーキテクチャ
+1	member organizations	メンバー組織
+1	member messages	メンバーメッセージ
+1	mechanism	メカニズム
+1	many more nodes	ノード
+1	many loosely-coupled components	疎結合コンポーネント
+1	logic part	ロジック部分
+1	local ledger	ローカル台帳
+1	listing	リスト
+1	line	一連
+1	lifecycle	ライフサイクル
+1	libraries	ライブラリ
+1	level	レベル
+1	less visibility	動作状況
+1	ledger systems	台帳システム
+1	ledger data	台帳データ
+1	layer	レイヤー
+1	labs	演習
+1	key/values pairs	ペア
+1	invoking chaincode	コード	チェーンコード
+1	invoked runs	実行
+1	invoke	起動
+1	invocation	呼び出し
+1	intermediate CA	中間CA
+1	intermediary	仲介者
+1	interconnections	相互接続
+1	interacting	やり取り
+1	integrity	完全	完全性
+1	initial value	初期値
+1	infrastructure	インフラストラクチャ
+1	identity validation functionality	ID検証機能
+1	identifying	権限
+1	history	歴史
+1	highly	高い
+1	higher levels	上位レベル
+1	hierarchy	階層
+1	hierarchical	階層	階層型システム
+1	group	グループ	グループ化
+1	general	一般
+1	foundation	基盤
+1	form	形式
+1	flow	フロー
+1	first one	最初
+1	fairness	公平性
+1	execution runtime	実行ランタイム
+1	execution	実行
+1	executed	実行
+1	everybody	確実
+1	entities	エンティティ
+1	endorsing peer	真
+1	endorsement phase	endorsementフェーズ
+1	element	要素
+1	distributing	配布
+1	distributed networks	分散型ネットワーク
+1	distributed ledger component	分散台帳コンポーネント
+1	distributed communications networks	分散型通信ネットワーク
+1	distributed combination	分散型組み合わせ
+1	digital ledger	デジタル台帳
+1	digital certificate	デジタル証明書
+1	digital asset	デジタル資産
+1	developer	開発者
+1	developed	開発
+1	designed	設計
+1	design	設計	デザイン
+1	deployment	デプロイ	電子署名
+1	deploy transactions	deployトランザクション
+1	deploy transaction	deployトランザクション
+1	default	デフォルト
+1	decentralized systems	非中央集権型システム
+1	decentralized networks	非中央集権型ネットワーク
+1	decentralized application	非中央集権型アプリケーション
+1	customers/buyers	購入者
+1	cryptographic system	暗号化システム
+1	cryptographic material	暗号材料
+1	cryptographic hash	暗号学的ハッシュ
+1	copies	コピー
+1	connections	接続
+1	connected	接続
+1	configuration requirement	設定要件
+1	configuration information	コンフィギュレーション情報	設定情報
+1	configuration chaincode	チェーンコード
+1	configtx	設定項目
+1	concepts	概念
+1	computer	コンピューター
+1	communication	コミュニケーション
+1	collection	集まり
+1	collecting	実行
+1	coding	コーディング
+1	co-inventor	次
+1	client SDK	クライアントSDK
+1	claim	リクエスト
+1	channel ledger	チャネル台帳	チャネル台帳用
+1	channel configuration	チャネル設定
+1	challenges	課題
+1	chaincode function	チェーンコード関数	チェーンコード機能
+1	chain	チェーン
+1	certificate data	証明書データ
+1	centralized systems	中央集権型システム
+1	centralized system	中央集権型システム
+1	centralized node	中央集権型ノード
+1	centralized networks	中央集権型ネットワーク
+1	centralized network	中央集権型ネットワーク
+1	centralized database	中央集権型データベース
+1	central server	中央サーバー
+1	central computer	中央コンピューター
+1	central clearing house	中央決済機関
+1	car	家
+1	business networks	ネットワーク
+1	business definition network	ビジネス定義ネットワーク
+1	blocks according	ブロック
+1	blocked	ブロック
+1	blockchain participants	ブロックチェーン参加者
+1	bitmask	ビットマスク
+1	bad transactions	トランザクション
+1	authorizes	認可
+1	authentication	認証
+1	authenticated	認証
+1	associated data	関連データ
+1	asset transfers	資産転送
+1	asset	資産
+1	apply	適用
+1	application information	アプリケーション情報
+1	anything	何
+1	anyone	誰
+1	amounts	金額
+1	altered	変更
+1	also distributed	分散
+1	advancement	インターネット
+1	administrators	管理	管理者
+1	administrative domains	管理ドメイン
+1	addressing	問題
+1	access control	アクセス制御
+1	World State part	ワールドステート部分
+1	Usually	通常
+1	Upgradability	アップグレード可能性
+1	Transaction	トランザクション
+1	Scalability	スケーラビリティ
+1	Root CA	ルートCA
+1	Reading	台帳
+1	RW set	RWセット
+1	Query transactions	queryトランザクション
+1	Public key cryptography	公開鍵暗号
+1	Peer processes	Peerプロセス
+1	PKI section	PKIセクション
+1	PKI infrastructure	PKIインフラストラクチャ
+1	OU field	OUフィールド
+1	Members	メンバー
+1	Local MSPs	ローカルMSP
+1	Local MSP configuration	ローカルMSP設定
+1	Ledgers	台帳
+1	KYC requirements	KYC要件
+1	Invoke transactions	invokeトランザクション
+1	Introduction	通信
+1	Intermediate CAs	中間CA
+1	Instead	代わり
+1	Getting	コンセンサス
+1	Further	ハンズオンラボ
+1	Fabric channel	Fabricチャネル
+1	Fabric blockchain network	Fabricブロックチェーンネットワーク
+1	Execution Runtimes	実行ランタイム
+1	Enrollment Certificates	登録証明書
+1	Enrollment	登録
+1	Distributed networks	分散型ネットワーク
+1	Distributed Ledger Technology	分散台帳テクノロジー
+1	Digital certificates	デジタル証明書
+1	Delivery guarantees	デリバリー保証
+1	Decentralized Solutions	非中央集権型ソリューション
+1	December	製品
+1	Composer model	Composerモデル
+1	Channel configuration	チャネル構成
+1	Channel Setup	チャネル設定
+1	Channel MSPs	チャネルMSP
+1	Chain of Trust	信頼チェーン
+1	Certificate authorities	認証局
+1	Certificate Revocation Lists	証明書失効リスト
+1	Centralized networks	中央集権型ネットワーク
+1	Business Definition Network	ビジネス定義ネットワーク
+1	Blockchain technology	ブロックチェーン技術
+1	Architecture	アーキテクチャ
+1	American computer scientist	コンピューター科学者
+1	Access control lists	アクセス制御リスト
+1	APIs and SDKs	APIやSoftware
+1	A Closer Look	詳細
