@@ -1,0 +1,463 @@
+N/V/A/B	Level	English	Japanese	Japanese (2)	Notes		
+N	4	abstraction 	抽象化				
+N	2	access control list	アクセス制御リスト				
+N	2	ACL	ACL				
+N	4	actor	アクター				
+N	2	administrator	管理者				
+N	2	administrator certificate	管理者証明書				
+N	1	anchor peer	アンカーピア				
+N	4	annotation	アノテーション				
+B	3	anonymously	匿名で				
+N	3	Anti-Money Laundering	アンチマネーロンダリング				
+N	4	API	API				
+N	4	application	アプリケーション				
+N	1	application capability	アプリケーションケーパビリティ				
+N	1	application channel	アプリケーションチャネル				
+N	1	approval	承認				
+V	1	approve	承認する				
+N	4	architect	アーキテクト				
+N	3	argument	引数				
+N	3	artifact	アーティファクト				
+N	3	asset	資産				
+N	4	auditable proof	監査可能な証拠				
+N	2	authentication	認証				
+N	4	backend	バックエンド				
+N	4	bearer	ベアラ				
+N	4	binary	バイナリ				
+N	4	binding	バインディング				
+N	2	Bitcoin	Bitcoin				
+N	1	block	ブロック				
+N	1	block data	ブロックデータ				
+N	1	block event	ブロックイベント				
+N	1	block header	ブロックヘッダー				
+N	1	block height	ブロックの高さ				
+N	1	block metadata	ブロックメタデータ				
+N	1	blockchain	ブロックチェーン				
+N	1	blockchain network	ブロックチェーンネットワーク				
+N	3	bootstrapping 	ブートストラップ				
+N	3	branch	ブランチ				
+N	3	broadcast	ブロードキャスト				
+V	3	build	ビルドする	構築する	文脈に依存する		
+N	3	business logic	ビジネスロジック				
+N	2	business object	ビジネスデータ				
+N	2	Byzantine crash fault	ビザンチン故障耐性				
+N	1	CA	CA				
+N	4	canonical path	正規化パス				
+N	1	capability	ケーパビリティ				
+A	2	centralized	中央集権的				
+N	1	certificate	証明書				
+N	1	certificate authority	認証局				
+N	1	certificate revocation list	証明書失効リスト				
+N	1	certificate signing request	証明書署名要求				
+N	1	chain	チェーン				
+N	1	chaincode	チェーンコード				
+N	1	chaincode definition	チェーンコード定義				
+N	1	chaincode endorsement policy	チェーンコードエンドースメントポリシー				
+N	1	chaincode function	チェーンコード関数				
+N	1	chaincode lifecycle	チェーンコードライフサイクル				
+N	1	chaincode to chaincode invocation	チェーンコード間呼び出し				
+N	1	channel	チャネル				
+N	1	channel configuration	チャネル設定				
+N	1	channel identifier	チャネル識別子				
+N	4	check and balance	抑制と均衡				
+V	3	checkout	チェックアウトする				
+N	4	class	クラス				
+N	4	client	クライアント				
+N	4	client application	クライアントアプリケーション				
+N	1	client identity chaincode library	クライアントアイデンティティ・チェーンコードライブラリ				
+N	3	clone	クローン				
+V	3	clone	クローンする				
+N	1	collection configuration	コレクション設定				
+N	1	collection definition	コレクション定義				
+N	1	collection policy	コレクションポリシー				
+N	3	command	コマンド				
+N	3	command reference	コマンドリファレンス				
+N	2	commercial paper	コマーシャルペーパー				
+V	1	commit	コミットする				
+N	1	commit	コミット				
+N	1	committing peer	コミットピア				
+N	3	communication service	コミュニケーションサービス				
+N	3	community	コミュニティ				
+N	3	component	コンポーネント				
+N	1	composite key	コンポジットキー		FabricのAPI名で出てくるため、RDB分野などでよく訳される「複合キー」ではなくコンポジットキーを採用する。		
+A	4	compound	複合の				
+N	1	concurrency control	同時実行制御				
+N	1	Concurrency Control Version Check	同時実行制御バージョンチェック		固有名詞的		
+N	1	concurrency violation	同時実行違反				
+N	3	confidential data	秘匿したいデータ				
+N	1	config transaction	コンフィギュレーショントランザクション		原文では、configurationをconfigと省略される場合があるが、その場合にも一貫性の観点で略さずに「コンフィグレーション」と訳すのがベター。		
+N	1	configtxgen	configtxgen				
+A	2	configurable	設定可能である				
+N	2	configuration	設定		「構成」との表記ゆれを防ぐために、なるべく準拠してもらいたい。		
+N	1	configuration block	コンフィギュレーションブロック				
+N	1	configuration system chaincode	コンフィギュレーションシステムチェーンコード		CSCCのこと		
+N	1	configuration transaction	コンフィギュレーショントランザクション				
+V	2	configure	設定する				
+N	1	connection option	コネクションオプション				
+N	1	connection profile	コネクションプロファイル				
+N	1	consensus	合意形成				
+N	1	consensus protocol	合意形成プロトコル				
+N	1	consenter	同意者				
+N	1	consenter set	同意者セット				
+N	1	consortium	コンソーシアム				
+N	1	consortium organization	コンソーシアム組織				
+N	2	context	コンテキスト				
+N	1	contract	コントラクト		ビジネス的意味で使う場合は「契約」、チェーンコードのクラスなどを意味する場合は「コントラクト」		
+N	3	contributor	コントリビュータ				
+N	1	CouchDB	CouchDB				
+N	2	crash fault tolerant	クラッシュ故障耐性				
+N	2	credentials	資格情報				
+N	3	crypto material	暗号マテリアル		原文を無視して暗号アーティファクトでよいかもしれない。		
+N	2	cryptocurrency	暗号通貨		ただし初出以外は、cryptoasset「暗号資産」として訳出		
+N	2	cryptogen	cryptogen				
+N	2	cryptographic algorithm	暗号アルゴリズム				
+N	2	cryptographic mechanism	暗号化メカニズム				
+B	2	cryptographically	暗号的に				
+N	4	database	データベース				
+N	4	DBMS	DBMS				
+A	1	decentralized	非中央集権的				
+N	4	decorator	デコレータ				
+A	3	default	デフォルト				
+N	2	default policy	デフォルトポリシー				
+N	2	definition	定義				
+V	2	deploy	デプロイする				
+N	2	deprecation	非推奨				
+V	3	deserialize	デシリアライズする				
+N	3	developer	開発者				
+V	2	disseminate	配布する				
+N	2	dissemination	配布				
+V	2	distribute	分散する				
+N	1	distributed ledger technology	分散台帳技術				
+N	1	distributed network	分散ネットワーク				
+N	2	distribution	ディストリビューション		Linuxに関するもの		
+N	2	Docker	Docker				
+N	2	documentation	ドキュメント				
+N	3	domain-specific language	ドメイン固有言語				
+N	2	double spend	ダブルスペンド				
+N	3	downtime	ダウンタイム				
+A	2	dynamic	動的				
+N	1	dynamic connection profile	動的コネクションプロファイル				
+N	1	dynamic gateway	動的ゲートウェイ				
+N	1	ECert	ECert				
+N	4	editor	エディタ				
+V	2	elect	選出する				
+N	2	element	要素				
+N	4	email	電子メール				
+A	3	enabled	有効になっている				
+V	4	encapsulate	カプセル化する				
+V	3	encode	エンコードする				
+V	1	endorse	エンドースする				
+N	1	endorsement	エンドースメント				
+N	1	endorsement policy	エンドースメントポリシー				
+N	1	endorsement system chaincode	エンドースメントシステムチェーンコード		ESCCのこと		
+N	1	endorser	エンドーサー				
+N	1	endorsing organization	エンドーシング組織				
+N	1	endorsing peer	エンドーシングピア				
+N	1	endorsing peer node	エンドーシングピアノード				
+N	2	endpoint	エンドポイント				
+V	1	enroll	エンロールする				
+N	1	enrollment certificate	登録証明書				
+A	2	enterprise	エンタープライズ				
+N	2	Ethereum	Ethereum				
+N	1	event handling	イベント処理				
+N	1	event hub	イベントハブ				
+N	1	event notification	イベント通知				
+N	1	execute-order-validate	execute-order-validate (実行→順序付け→検証)		初出時は注釈つける		
+A	3	extensible	拡張可能である				
+N	1	external builder	外部ビルダー				
+N	1	external chaincode launcher	外部チェーンコードランチャー				
+N	3	external dependencies	外部依存関係				
+V	3	extract	解凍する		圧縮ファイルの文脈		
+N	1	Fabric	Fabric				
+N	2	fact	事実		"ledger/ledger.mdに頻出する""fact"""		
+N	1	follower	フォロワ				
+V	2	fork	フォークする				
+N	3	fully qualified path	完全修飾パス				
+N	2	function	関数				
+N	1	gateway	ゲートウェイ				
+N	2	general-purpose programming language	汎用プログラミング言語				
+N	1	genesis block	ジェネシスブロック				
+N	1	gossip	ゴシップ				
+N	1	gossip organization-scoped data	ゴシッププロトコルを介した組織スコープのデータ				
+N	1	gossip protocol	ゴシッププロトコル				
+N	1	gossip service	ゴシップサービス				
+V	2	govern	管理する				
+N	2	governance	ガバナンス				
+N	3	graph store	グラフストア				
+N	3	happy path test	ハッピーパステスト				
+N	1	hash	ハッシュ値				
+N	1	hash chain	ハッシュチェーン				
+N	2	header	ヘッダー				
+N	2	health check	ヘルスチェック				
+N	3	heartbeat	ハートビート				
+N	3	helper method	ヘルパーメソッド				
+N	2	high availability	高可用性				
+N	2	history	履歴				
+V	3	host	ホストする				
+N	1	Hyperledger	Hyperledger				
+N	1	Hyperledger Fabric	Hyperledger Fabric				
+N	1	Idemix organization	Idemix組織				
+N	2	identifier	識別子				
+V	2	identify	識別する				
+N	1	identity	アイデンティティ				
+N	1	immutability	イミュータビリティ				
+A	1	immutable	イミュータブルな				
+V	3	increment	インクリメントする				
+A	3	inlined	インライン化された				
+N	3	input error	入力エラー				
+V	2	install	インストールする				
+N	2	instance	インスタンス				
+V	2	instantiate	インスタンス化する				
+N	2	instantiation	インスタンス化				
+N	3	instruction	手順		文脈によっては命令と訳すのがよさそう。		
+N	2	insurance policy	インシュランスポリシー(保険契約)		初出時には注釈をつける		
+N	3	integration test	統合テスト				
+V	2	interact	やりとりする				
+N	2	interaction	やりとり				
+N	3	interface	インタフェース				
+A	3	intermediate	中間				
+N	2	intermediate CA	中間CA				
+N	2	intermediate certificate	中間証明書				
+N	2	interoperability	相互運用性				
+A	2	invalid	正当でない				
+V	1	invoke	呼び出す				
+N	3	issue	issue		JIRAのIssueの場合		
+V	2	issue	発行する		証明書などを発行する。		
+V	2	join	参加する				
+N	1	key	キー	鍵	文脈による。キーバリューストアの文脈では「キー」。暗号鍵の文脈では「鍵」。		
+A	1	key-value	キーと値の				
+N	1	key-value pair	キーバリューペア				
+N	1	key-value store database	キーバリューストアデータベース				
+N	2	Know Your Customer	Know Your Customer				
+N	4	Kubernetes	Kubernetes				
+N	2	LDAP	LDAP				
+N	1	leader	リーダー				
+N	1	leader and follower model	リーダー・フォロワモデル				
+N	1	leading peer	リーダーピア				
+N	1	ledger	台帳				
+N	1	ledger chain	台帳チェーン				
+N	1	ledger fork	台帳のフォーク				
+N	1	ledger state	台帳ステート				
+N	2	LevelDB	LevelDB				
+N	1	life cycle	ライフサイクル				
+N	4	Linux Foundation	Linux Foundation				
+N	3	listen	listenする				
+N	3	local	ローカル				
+N	3	local filesystem	ローカルファイルシステム				
+N	3	log entry	ログエントリ				
+N	3	logging framework	ログフレームワーク				
+A	3	logical	論理的な				
+N	3	logical information	論理情報				
+N	3	logical name	論理名				
+N	2	long term support	長期サポート				
+A	3	low level	低レベル				
+N	2	LTS	LTS				
+N	3	maintainer	メンテナ				
+N	2	majority	過半数				
+N	3	master	master		gitのmasterブランチの場合には、アルファベット表記がよさそう。		
+N	1	member	メンバー				
+N	1	membership	メンバーシップ				
+N	1	membership architecture	メンバーシップアーキテクチャ				
+N	1	membership service	メンバーシップサービス				
+N	1	membership service provider	メンバーシップサービスプロバイダ				
+N	1	membership standard	メンバーシップ標準				
+V	3	merge	マージする				
+N	3	metadata	メタデータ				
+N	3	metrics	メトリクス		metricとmetricsで統一感はないが、慣習に従って。		
+N	3	metric	メトリック		metricとmetricsで統一感はないが、慣習に従って。		
+N	2	mining	マイニング				
+A	3	modular	モジュラー型				
+N	3	modularity	モジュール性				
+V	3	modularize	モジュール化する				
+N	1	MSP	MSP				
+N	1	MSP ID	MSP ID				
+N	1	MSP information	MSP情報				
+N	2	mutual TLS	相互TLS				
+N	1	namespace	ネームスペース				
+N	3	native cryptocurrency	ネイティブな暗号通貨				
+N	3	negative test	ネガティブテスト				
+N	2	network configuration	ネットワーク設定				
+N	3	network topology	ネットワークトポロジ				
+N	3	nil byte	ヌル文字				
+N	4	node traversal	ノードトラバーサル				
+N	1	non-determinism	非決定性				
+A	1	non-deterministic	非決定的				
+A	2	off-chain	オフチェーン				
+A	2	on-chain	オンチェーン				
+N	3	open governance	オープンガバナンス				
+N	4	OpenID Connect	OpenID Connect				
+N	3	operation	操作	運用	文脈による		
+N	3	operational metrics	運用メトリクス				
+N	3	Operations Guide	運用ガイド				
+N	2	operator	運用者				
+A	3	optional	任意				
+V	3	orchestrate	オーケストレーションする				
+V	1	order	順序付けする				
+A	1	ordered	順序付けられた				
+N	1	orderer	orderer				
+N	1	orderer node	オーダリングノード		原文とは異なるが、ordering nodeと同じ用語で使われているので統一する。		
+N	1	order-execute	order-execute (順序付け→実行)		初出時には注釈をつける		
+A	1	ordering	順序付けする				
+N	1	ordering node	オーダリングノード				
+N	1	ordering organization	オーダリング組織				
+N	1	ordering service	オーダリングサービス				
+N	1	organization	組織				
+N	1	organizational unit (OU)	組織単位 (OU)				
+V	3	override	上書きする				
+N	1	package	パッケージ				
+V	1	package	パッケージ化する				
+N	1	package identifier	パッケージID				
+N	2	paper	コマーシャルペーパー		Commercial paperのサンプルの文脈でのみ		
+N	2	payload	ペイロード				
+N	1	peer	ピア				
+N	1	peer administrator	ピア管理者				
+N	1	peer CLI	ピアCLI				
+N	1	peer node	ピアノード				
+N	1	peer organization	ピア組織				
+A	1	peer-to-peer	ピアツーピア				
+N	1	permissioned blockchain	許可型ブロックチェーン				
+A	1	permissionless	パーミッションレス				
+N	4	PKI	PKI				
+A	3	pluggable	プラグイン可能な		日本語としてのわかりやすさを考慮。		
+N	3	pod	pod		Kubernetesの文脈		
+N	1	policy	ポリシー				
+N	2	PoW	PoW				
+N	2	Practical Byzantine Fault Tolerance	PBFT (実用的ビザンチン故障耐性)				
+N	3	prefix	プレフィックス				
+N	3	pre-requisite software	事前に必要なソフトウェア				
+N	1	principal	プリンシパル		コンフィグのポリシーの文脈		
+A	3	private	プライベートな				
+N	1	private data	プライベートデータ				
+N	1	private data collection	プライベートデータコレクション				
+N	1	private key	秘密鍵				
+N	1	private writeset storage	プライベート書き込みセットストレージ				
+A	3	physical	物理的				
+N	3	physical information	物理情報				
+N	3	process	プロセス	処理	文脈次第		
+N	3	production	本番				
+N	2	profile	プロファイル				
+N	3	property	プロパティ				
+N	2	proposal	提案				
+N	2	proposal response	提案応答				
+N	2	protocol buffer	プロトコルバッファ				
+A	3	public	パブリック	公開の	文脈による。ブロックチェーンの種類についていう場合には「パブリック」		
+N	1	public block	パブリックブロック		プライベートデータに対する対比		
+N	1	public data	パブリックデータ		プライベートデータに対する対比		
+N	1	public key	公開鍵				
+N	3	Public Key Infrastructure	公開鍵基盤				
+A	3	publish	公開する				
+N	3	pull request	プルリクエスト				
+V	2	purge	パージする				
+V	3	push	プッシュする				
+N	1	query	クエリ				
+V	1	query	クエリする				
+N	1	query system chaincode	クエリシステムチェーンコード		QSCCのこと		
+N	1	query transaction	クエリトランザクション				
+N	2	quorum	定足数				
+N	1	Raft	Raft				
+A	4	read	読み込み				
+N	1	read set	読み込みセット				
+A	3	read-only	読み込み専用の				
+N	1	read-write set	読み書きセット				
+V	3	rebase	リベースする				
+V	2	redeem	現金化する		Commercial Paperのサンプルの文脈のみ		
+N	3	redundancy	冗長性				
+N	2	registrar	登録管理者				
+N	3	registry	レジストリ				
+N	3	regression	リグレッション				
+V	3	reject	却下する				
+A	3	relational	リレーショナルな				
+N	3	release	リリース				
+V	2	repackage	再パッケージ化する				
+N	3	replica	複製				
+V	3	replicate	複製する				
+N	3	repository	リポジトリ				
+N	2	request	要求		ただし、HTTPのGET/PUTなどの文脈では「GET/PUTリクエスト」。		
+A	3	required	必須				
+N	3	resilience	レジリエンス				
+N	2	response	応答		ただし、HTTPの文脈では「レスポンス」		
+N	3	return	リターン		投資に対する見返りの文脈		
+A	3	rich	リッチな		クエリ		
+N	3	role	ロール		一般用語の文脈では役割など		
+N	3	rolling upgrade	ローリングアップグレード				
+N	2	root CA	ルートCA				
+N	2	root certificate	ルート証明書				
+N	2	root of trust	信頼のルート				
+N	3	scalability	スケーラビリティ				
+N	3	scalar	スカラー				
+N	3	schema	スキーマ				
+A	3	scripted	スクリプト化する				
+N	2	self-signed (X.509) CA certificates	自己署名 (X.509) CA証明書				
+N	1	sequence	シーケンス				
+V	3	serialize	シリアライズする				
+N	3	server	サーバー				
+N	1	service discovery	サービスディスカバリ				
+V	2	sign	署名する				
+N	2	signature	署名				
+N	1	signature policy	署名ポリシー				
+N	2	signing key	署名鍵				
+N	2	single point of failure	単一障害点				
+N	1	smart contract	スマートコントラクト				
+N	1	smart contract transaction	スマートコントラクトトランザクション				
+N	4	SQL	SQL				
+N	1	state	状態	ステート	文脈による。ワールドステートやステートデータベース関連の場合にはステート		
+N	1	state data	ステートデータ				
+N	1	state database	ステートデータベース				
+N	2	state transition	状態遷移				
+N	2	state transition diagram	状態遷移図				
+A	2	static	静的				
+N	1	static connection profile	静的コネクションプロファイル				
+N	1	static gateway	静的ゲートウェイ				
+N	2	status	ステータス				
+V	2	submit	送信する		"Transactionのsubmit(送信する)、Pull Requestのsubmit(出す)など文脈によって違う"		
+N	3	suffix	サフィックス				
+N	3	support	サポート				
+V	4	swap in and out	出し入れする				
+N	3	syntax	構文				
+N	1	system chain	システムチェーン				
+N	1	system chaincode	システムチェーンコード				
+N	1	system channel	システムチャネル				
+N	3	task	タスク				
+N	3	Technical Steering Committee (TSC)	Technical Steering Committee (TSC)				
+N	3	Test Driven Development	テスト駆動開発				
+N	2	test network	テストネットワーク				
+N	3	topic	トピック				
+N	1	transaction	トランザクション		ビジネス的意味で使う場合は「取引」もありうる		
+N	1	transaction context	トランザクションコンテキスト				
+N	1	transaction flow	トランザクションフロー				
+N	1	transaction identifier	トランザクション識別子				
+N	1	transaction logic	トランザクションのロジック				
+N	1	transaction processing	トランザクション処理				
+N	1	transaction proposal	トランザクション提案				
+N	1	transaction result	トランザクション結果				
+N	1	transient data store	一時的データストア				
+N	2	trust model	信頼モデル				
+N	3	tutorial	チュートリアル				
+A	3	unique	ユニークな				
+N	3	unit test	単体テスト				
+V	3	update	更新する				
+N	1	update transaction	更新トランザクション				
+N	1	upgrade	アップグレード				
+V	1	upgrade	アップグレードする				
+N	3	use case	ユースケース				
+N	3	user	ユーザー				
+A	2	valid	正当な				
+V	1	validate	検証する				
+N	1	validation	検証				
+N	1	validation system chaincode	検証システムチェーンコード		VSCCのこと		
+N	1	validity of identities	アイデンティティの有効性				
+N	1	value	値				
+N	3	vector	ベクトル				
+N	3	vector state	ベクトルのステート				
+A	1	verifiable	検証可能な				
+N	1	verification	検証				
+N	4	versatility	汎用性				
+N	3	view	ビュー				
+N	2	wallet	ウォレット				
+N	4	workgroup	ワーキンググループ				
+N	4	working directory	作業ディレクトリ				
+N	1	world state	ワールドステート				
+A	4	write	書き込み				
+N	1	write set	書き込みセット				
+N	2	X.509	X.509				
+N	2	zero-knowledge proof	ゼロ知識証明				
